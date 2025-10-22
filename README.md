@@ -66,6 +66,19 @@ python3 -m http.server 8000
 open doc/MVP1.0_UI0.2_En.html
 ```
 
+## License
+
+This project is open source for educational and personal use only. **Commercial use is strictly prohibited.**
+
+- ✅ Personal use and learning
+- ✅ Educational purposes
+- ✅ Non-commercial research
+- ❌ Commercial applications
+- ❌ Selling or monetizing the code
+- ❌ Using in commercial products or services
+
+For commercial licensing inquiries, please contact the project maintainers.
+
 ## Next Steps
 - Implement recording panel with Start/Stop/Save workflow and session feed integration.
 - Add Session Detail modal with audio playback and "Send to Deep Dive" functionality.
