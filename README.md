@@ -22,16 +22,16 @@
 
 ```mermaid
 flowchart LR
-  H[Home · Self-Awareness Compass] -->|Tap Score Card| G[Growth Tracking]
-  H -->|Tap Session Card| D[Session Detail]
-  H -->|Tap A (Alex)| A[Alex Companion]
-  H -->|Tap Mic| R[Recording Panel]
-  H -->|Tap Deep Dive Entry| T[Today's Deep Dive]
-  D -->|Send to Deep Dive| T
-  A -->|Review Prompts| T
-  A -->|Log Feelings| G
-  R -->|Save Recording| H
-  T -->|Complete Reflection| G
+  H["Home · Self-Awareness Compass"] -->|"Tap Score Card"| G["Growth Tracking"]
+  H -->|"Tap Session Card"| D["Session Detail"]
+  H -->|"Tap A (Alex)"| A["Alex Companion"]
+  H -->|"Tap Mic"| R["Recording Panel"]
+  H -->|"Tap Deep Dive Entry"| T["Today's Deep Dive"]
+  D -->|"Send to Deep Dive"| T
+  A -->|"Review Prompts"| T
+  A -->|"Log Feelings"| G
+  R -->|"Save Recording"| H
+  T -->|"Complete Reflection"| G
 ```
 
 ### Interaction Notes
@@ -54,7 +54,6 @@ flowchart LR
 
 - `doc/MVP1.0_UI0.2_En.html`: Interactive UI prototype with Self-Awareness single metric focus and recording panel.
 - `doc/MVP1.0_PRD0.2.md`: Product Requirements Document v0.2 with detailed specifications.
-- `design/mindringforlogo.png`: Brand mark.
 - `design/AlexLogo.svg`: Alex avatar.
 
 ## Preview
