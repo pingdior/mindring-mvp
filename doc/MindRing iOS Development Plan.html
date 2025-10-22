@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindRing · iOS Development Plan</title>
+  <style>
+    :root {
+      --forest: #2f5d3e;
+      --moss: #5b8a72;
+      --earth: #b97a3c;
+      --fog: #f9f6ef;
+      --ink: #1f2a24;
+      --muted: #6b7068;
+      --card: #ffffff;
+      --border: rgba(60, 80, 74, 0.18);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(960px 720px at 18% -12%, var(--fog) 0%, #f0e4cf 52%, #e2d2b3 100%);
+    }
+    header {
+      background: linear-gradient(125deg, var(--forest), var(--earth));
+      color: #ffffff;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 0.6px;
+    }
+    main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+      display: grid;
+      gap: 24px;
+    }
+    section {
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(31, 42, 36, 0.12);
+      padding: 24px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: var(--forest);
+    }
+    h3 {
+      font-size: 16px;
+      margin: 18px 0 8px;
+      color: var(--ink);
+    }
+    p {
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+    ul {
+      margin: 0 0 12px 20px;
+      padding: 0;
+      line-height: 1.6;
+    }
+    li + li {
+      margin-top: 6px;
+    }
+    .highlight {
+      background: rgba(91, 138, 114, 0.12);
+      border-left: 4px solid var(--moss);
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MindRing iOS Dev Kickoff</h1>
+    <p style="margin: 12px 0 0; font-size: 16px">From concept prototypes to production-grade on-device experience.</p>
+  </header>
+  <main>
+    <section>
+      <h2>Vision & Scope</h2>
+      <p>The MindRing iOS application mirrors the MVP experience in <strong>MVP1.0_UI0.1_En</strong>, enabling users to capture audio, reflect with Alex, and review growth analytics entirely on-device while remaining ready for future backend services.</p>
+      <div class="highlight">
+        <p style="margin: 0"><strong>Release Objective:</strong> deliver a TestFlight-ready build covering Capture → Session Detail → Today’s Deep Dive → Growth Compass with offline resilience and hooks for cloud services.</p>
+      </div>
+    </section>
+    <section>
+      <h2>Architecture Overview</h2>
+      <h3>App Shell</h3>
+      <ul>
+        <li><strong>SwiftUI</strong> entry via <code>MindRingApp</code> orchestrated by <code>AppCoordinator</code> and <code>NavigationPath</code>.</li>
+        <li><strong>DependencyContainer</strong> injects repositories, services, and theming through environment.</li>
+        <li><strong>Theme</strong> module reflects forest palette from exported prototypes.</li>
+      </ul>
+      <h3>Core Modules</h3>
+      <ul>
+        <li><strong>Audio</strong>: <code>AudioCaptureManager</code>, permission flow, haptic feedback, secure file storage.</li>
+        <li><strong>Data</strong>: Core Data stack with entities <code>Capture</code>, <code>Session</code>, <code>Highlight</code>, <code>GrowthMetric</code>; optional GRDB gateway for exports.</li>
+        <li><strong>Services</strong>: Protocols for transcripts, summaries, prompts, emotions; default local implementations using system frameworks.</li>
+        <li><strong>Features</strong>: Home, Session Detail, Alex Companion, Today’s Deep Dive, Growth Tracking, Capture Modal.</li>
+      </ul>
+      <h3>Backend Flexibility</h3>
+      <ul>
+        <li><strong>Embedded mode</strong>: fully offline services supplying mock transcripts and prompts.</li>
+        <li><strong>Local server</strong>: optional Vapor project exposing <code>/transcript</code>, <code>/summary</code>, <code>/prompts</code> for richer experimentation.</li>
+        <li><strong>Feature flags</strong>: switchable backend mode via <code>BackendMode</code> enum.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Feature Breakdown</h2>
+      <h3>Home & Navigation</h3>
+      <ul>
+        <li>Growth Compass card with Idea Flow, Integration, Self-Awareness gauges.</li>
+        <li>Session stream displaying recent captures, tags, and quick actions.</li>
+        <li>Floating action bar for Capture modal and Alex Companion entry.</li>
+      </ul>
+      <h3>Capture Stream</h3>
+      <ul>
+        <li>One-tap recording with waveform, timer, and emotion tagging.</li>
+        <li>Post-capture editing for title, AI tags, and transcript review.</li>
+        <li>File persistence with <code>FileProtection.completeUnlessOpen</code> and background continuation.</li>
+      </ul>
+      <h3>Alex Companion</h3>
+      <ul>
+        <li>Dialogue surface matching exported UI bubbles.</li>
+        <li>Emotion mirroring via <code>EmotionAnalyzer</code> and check-in chips.</li>
+        <li>Actions to review prompts and hand off to Today’s Deep Dive.</li>
+      </ul>
+      <h3>Growth Compass & Deep Dive</h3>
+      <ul>
+        <li>Charts using Swift Charts for 24h trend visualization.</li>
+        <li>Reflection checklist and completion criteria updating metrics.</li>
+        <li>Forest feedback tiles responsive to reflection frequency and mood balance.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Local Services & Data Contracts</h2>
+      <ul>
+        <li><strong>TranscriptService</strong>: wraps <code>SFSpeechRecognizer</code>, returns aligned segments and confidence scores.</li>
+        <li><strong>SummaryService</strong>: generates 3-sentence highlights and 2–4 tags using <code>NLTagger</code>.</li>
+        <li><strong>CompanionService</strong>: deterministic prompt rotations with placeholders for LLM integration.</li>
+        <li><strong>Sync Gateway</strong>: queues capture metadata for future cloud sync; stores state in <code>SyncOperation</code> entity.</li>
+      </ul>
+      <p>Contracts will live under <code>Shared/API</code> with Swift models mirrored by optional Vapor JSON schemas.</p>
+    </section>
+    <section>
+      <h2>Tooling & Quality</h2>
+      <ul>
+        <li><strong>Build</strong>: Xcode 15, Swift 5.9, Swift Package Manager for dependencies.</li>
+        <li><strong>Code Quality</strong>: SwiftLint, SwiftFormat, Danger for PR automation.</li>
+        <li><strong>Testing</strong>: XCTest suites per module, snapshot tests with Point-Free’s <code>SnapshotTesting</code>, audio regression harness.</li>
+        <li><strong>CI/CD</strong>: GitHub Actions macOS runners, fastlane lanes (<code>beta</code>, <code>release</code>), TestFlight deployment.</li>
+        <li><strong>Analytics & Privacy</strong>: optional privacy-preserving telemetry, on-device encryption for captures, clear consent flows.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Roadmap & Deliverables</h2>
+      <h3>Milestone 1 · Week 1–2</h3>
+      <ul>
+        <li>Project scaffolding, dependency container, theme system.</li>
+        <li>Home and Session Detail views backed by mock data.</li>
+        <li>Audio capture MVP with local file persistence.</li>
+      </ul>
+      <h3>Milestone 2 · Week 3–4</h3>
+      <ul>
+        <li>Alex Companion interactions, Deep Dive flow, Growth dashboards.</li>
+        <li>Local services for transcripts, summaries, prompts, emotion analytics.</li>
+        <li>Accessibility audit and localization hooks (EN → ZH placeholders).</li>
+      </ul>
+      <h3>Milestone 3 · Week 5–6</h3>
+      <ul>
+        <li>CI/CD automation, QA regression suite, offline resilience tests.</li>
+        <li>Optional Vapor backend prototype and API client integration.</li>
+        <li>TestFlight readiness checklist and release documentation.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Immediate Next Steps</h2>
+      <ul>
+        <li>Confirm Core Data vs GRDB preference for long-term storage.</li>
+        <li>Provision developer certificates and decide on bundle identifiers.</li>
+        <li>Generate Swift project skeleton and seed mock data aligning with docs.</li>
+        <li>Schedule design sync to validate UI fidelity against exported HTML.</li>
+      </ul>
+      <p>Once these are locked, implementation of Home, Capture, and Session Detail can begin with local services powering end-to-end flows.</p>
+    </section>
+  </main>
+</body>
+</html>

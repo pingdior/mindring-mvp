@@ -1,0 +1,720 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "locale": "en-US",
+      "createdAt": "2025-10-21T11:31:54.645Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "0a0a6975-0d9b-4165-a851-99e5da9e9e04",
+      "timestamp": "2025-10-22T05:49:20Z",
+      "source": "recording",
+      "title": "Audio Recording",
+      "summary": "Audio recording (00:21)",
+      "emotions": [
+        {
+          "id": "04815383-ab62-455d-96db-e8a6770f6e16",
+          "timestamp": "2025-10-22T05:49:20Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "40c6f57b-01ea-4c0a-8075-663e9659a22b",
+      "timestamp": "2025-10-22T05:47:43Z",
+      "source": "recording",
+      "title": "Audio Recording",
+      "summary": "Audio recording (00:15)",
+      "emotions": [
+        {
+          "id": "20739fd4-694c-44e3-aacc-bbcd203c10e6",
+          "timestamp": "2025-10-22T05:47:43Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "9b5c7241-f76d-4e87-8552-5e38878d2a96",
+      "timestamp": "2025-10-21T13:21:42Z",
+      "source": "recording",
+      "title": "Quick Recording",
+      "summary": "Recorded note from 00:16 session.",
+      "emotions": [
+        {
+          "id": "deea5fbc-e9a9-4787-a590-282f6d3a5546",
+          "timestamp": "2025-10-21T13:21:42Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "0f1fdd2c-c7a2-4e69-a020-ecc54e167fb2",
+      "timestamp": "2025-10-21T13:04:57Z",
+      "source": "recording",
+      "title": "Quick Recording",
+      "summary": "Recorded note from 00:11 session.",
+      "emotions": [
+        {
+          "id": "4794879e-b48a-4a21-9be9-d0e2a772b377",
+          "timestamp": "2025-10-21T13:04:57Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "47361fb8-0e15-49ce-af21-952bc4efef8b",
+      "timestamp": "2025-10-21T12:59:32Z",
+      "source": "recording",
+      "title": "Quick Recording",
+      "summary": "Recorded note from 00:04 session.",
+      "emotions": [
+        {
+          "id": "2e575d28-8cd0-4cb2-809f-99231bd54c40",
+          "timestamp": "2025-10-21T12:59:32Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "81c4f5d4-7f90-41d0-970a-dc81c7d75db9",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "9978632e-6f8b-4752-bdb7-4ec0718f4cc9",
+          "timestamp": "2025-10-21T12:44:17Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "6d65a4f9-9632-4198-b131-97769ad062d5",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "c3bd21b5-58f1-46da-adb2-010ec9916f16",
+          "timestamp": "2025-10-21T12:44:17Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "c35807d0-071f-4fc5-9d23-577b1d455927",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "914feaf6-10b8-4017-9d9a-28177815a41c",
+          "timestamp": "2025-10-21T12:44:17Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "2049a17a-0fd4-4cd5-92ea-fae7925493e0",
+      "timestamp": "2025-10-21T12:44:13Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "6a041d0b-491e-4a63-ab7f-4230875b7e67",
+          "timestamp": "2025-10-21T12:44:13Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "aa5a4cd4-cb98-4db0-9b4c-ffe33c092659",
+      "timestamp": "2025-10-21T12:44:12Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "e8e35cfe-2392-4704-99f8-1e531d027a80",
+          "timestamp": "2025-10-21T12:44:12Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "da43d891-c6fa-4099-85ac-4a7cf0921945",
+      "timestamp": "2025-10-21T12:44:11Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "1bc6dade-1504-452e-bde9-54c2606c4507",
+          "timestamp": "2025-10-21T12:44:11Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "6c7b986f-98ca-4257-b8ff-9d377e3110cb",
+      "timestamp": "2025-10-21T12:44:11Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "3b5c79e6-f2aa-4587-981e-19e8cbcde409",
+          "timestamp": "2025-10-21T12:44:11Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "b02917a6-da2e-4eac-88c7-ac2f300362dd",
+      "timestamp": "2025-10-21T12:44:10Z",
+      "source": "recording",
+      "title": "Quick Capture",
+      "summary": "Recorded note.",
+      "emotions": [
+        {
+          "id": "c88ff690-de1c-4057-ae53-da9abbc87927",
+          "timestamp": "2025-10-21T12:44:10Z",
+          "labels": [
+            "Focused"
+          ],
+          "granularityScore": 0
+        }
+      ],
+      "tags": [
+        "Self‑Awareness",
+        "New"
+      ]
+    },
+    {
+      "id": "s1",
+      "timestamp": "2025-10-21T11:31:54.645Z",
+      "source": "ring",
+      "title": "Sprint Alignment",
+      "summary": "Confirmed rhythm, surfaced data gap.",
+      "emotions": [],
+      "tags": [
+        "Self‑Awareness",
+        "Energized + Wary"
+      ]
+    },
+    {
+      "id": "s0",
+      "timestamp": "2025-10-20T11:31:54.646Z",
+      "source": "alex",
+      "title": "Alex Follow-up",
+      "summary": "Named blind spots, emotion shifts tracked.",
+      "emotions": [],
+      "tags": [
+        "Curious",
+        "Focused"
+      ]
+    }
+  ],
+  "emotions": [
+    {
+      "id": "04815383-ab62-455d-96db-e8a6770f6e16",
+      "timestamp": "2025-10-22T05:49:20Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "20739fd4-694c-44e3-aacc-bbcd203c10e6",
+      "timestamp": "2025-10-22T05:47:43Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "deea5fbc-e9a9-4787-a590-282f6d3a5546",
+      "timestamp": "2025-10-21T13:21:42Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "4794879e-b48a-4a21-9be9-d0e2a772b377",
+      "timestamp": "2025-10-21T13:04:57Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "2e575d28-8cd0-4cb2-809f-99231bd54c40",
+      "timestamp": "2025-10-21T12:59:32Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "9978632e-6f8b-4752-bdb7-4ec0718f4cc9",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "c3bd21b5-58f1-46da-adb2-010ec9916f16",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "914feaf6-10b8-4017-9d9a-28177815a41c",
+      "timestamp": "2025-10-21T12:44:17Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "0b03cc1a-7698-498d-af45-f65523919830",
+      "timestamp": "2025-10-21T12:44:15Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "2e6a6220-bde8-4e05-a4c8-8dc9aaa5cc24",
+      "timestamp": "2025-10-21T12:44:15Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "6c2c84ed-d000-4a97-bb76-baed1ad54bfa",
+      "timestamp": "2025-10-21T12:44:15Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "6a041d0b-491e-4a63-ab7f-4230875b7e67",
+      "timestamp": "2025-10-21T12:44:13Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "e8e35cfe-2392-4704-99f8-1e531d027a80",
+      "timestamp": "2025-10-21T12:44:12Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "1bc6dade-1504-452e-bde9-54c2606c4507",
+      "timestamp": "2025-10-21T12:44:11Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "3b5c79e6-f2aa-4587-981e-19e8cbcde409",
+      "timestamp": "2025-10-21T12:44:11Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "c88ff690-de1c-4057-ae53-da9abbc87927",
+      "timestamp": "2025-10-21T12:44:10Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "f1798d0c-ec05-43b5-bfb7-36867b1cefe1",
+      "timestamp": "2025-10-21T12:44:09Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "2affadc5-e445-44db-a658-1606ba63e4e6",
+      "timestamp": "2025-10-21T12:44:04Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "01710d8c-9a30-4288-9aa8-6dda760d1b2a",
+      "timestamp": "2025-10-21T12:44:02Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "e1",
+      "timestamp": "2025-10-21T11:31:54.645Z",
+      "labels": [
+        "Curious",
+        "Wary"
+      ],
+      "granularityScore": 0
+    },
+    {
+      "id": "e0",
+      "timestamp": "2025-10-20T11:31:54.646Z",
+      "labels": [
+        "Focused"
+      ],
+      "granularityScore": 0
+    }
+  ],
+  "reflections": [
+    {
+      "id": "9eef7f9e-e72d-4476-a379-52222d0d01b0",
+      "date": "2025-10-21",
+      "status": "completed",
+      "notes": "Named hidden assumption and first collapse point."
+    }
+  ],
+  "scoreSnapshots": [
+    {
+      "timestamp": "2025-10-22T05:49:20.502Z",
+      "selfAwareness": 55,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 0,
+        "consistencyEMA": 0.74
+      }
+    },
+    {
+      "timestamp": "2025-10-22T05:47:43.695Z",
+      "selfAwareness": 57,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 0,
+        "consistencyEMA": 0.84
+      }
+    },
+    {
+      "timestamp": "2025-10-21T13:21:42.509Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T13:04:57.584Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:59:32.365Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:17.918Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:17.649Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:17.378Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:16.743Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:16.448Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:15.666Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:15.337Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:15.077Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.99
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:14.402Z",
+      "selfAwareness": 100,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.98
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:14.149Z",
+      "selfAwareness": 99,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.97
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:13.855Z",
+      "selfAwareness": 99,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.96
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:13.228Z",
+      "selfAwareness": 99,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.94
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:12.973Z",
+      "selfAwareness": 98,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.91
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:11.611Z",
+      "selfAwareness": 97,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.87
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:11.344Z",
+      "selfAwareness": 97,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.82
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:10.641Z",
+      "selfAwareness": 95,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.75
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:10.334Z",
+      "selfAwareness": 93,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 1,
+        "consistencyEMA": 0.65
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:09.466Z",
+      "selfAwareness": 50,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 0,
+        "consistencyEMA": 0.5
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:04.761Z",
+      "selfAwareness": 50,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 0,
+        "consistencyEMA": 0.5
+      }
+    },
+    {
+      "timestamp": "2025-10-21T12:44:03.037Z",
+      "selfAwareness": 50,
+      "components": {
+        "emotionGranularity": 1,
+        "reflectionCompletion": 0,
+        "consistencyEMA": 0.5
+      }
+    }
+  ]
+}

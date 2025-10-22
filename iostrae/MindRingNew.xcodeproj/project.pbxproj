@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B001 /* MindRingNewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001 /* MindRingNewApp.swift */; };
+		B002 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002 /* HomeView.swift */; };
+		B003 /* BackendClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003 /* BackendClient.swift */; };
+		B004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F004 /* Assets.xcassets */; };
+		B005 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006 /* DesignSystem.swift */; };
+		B006 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007 /* ChatView.swift */; };
+		B007 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008 /* AudioRecorder.swift */; };
+		B008 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* AudioPlayer.swift */; };
+		B009 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* SpeechRecognizer.swift */; };
+		B010 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011 /* SessionDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F001 /* MindRingNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindRingNewApp.swift; sourceTree = "<group>"; };
+		F002 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F003 /* BackendClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendClient.swift; sourceTree = "<group>"; };
+		F004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F005 /* Resources/Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Resources/Info.plist; sourceTree = "<group>"; };
+		F006 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		F007 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		F008 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		F009 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		F010 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		F011 /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		FP001 /* MindRingNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindRingNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		PF001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G001 = {
+			isa = PBXGroup;
+			children = (
+				G002 /* MindRingNew */,
+				G003,
+			);
+			sourceTree = "<group>";
+		};
+		G002 /* MindRingNew */ = {
+			isa = PBXGroup;
+			children = (
+				F001 /* MindRingNewApp.swift */,
+				F002 /* HomeView.swift */,
+				F003 /* BackendClient.swift */,
+				F006 /* DesignSystem.swift */,
+				F007 /* ChatView.swift */,
+				F008 /* AudioRecorder.swift */,
+				F009 /* AudioPlayer.swift */,
+				F010 /* SpeechRecognizer.swift */,
+				F011 /* SessionDetailView.swift */,
+				G004 /* Resources */,
+			);
+			path = MindRingNew;
+			sourceTree = "<group>";
+		};
+		G003 = {
+			isa = PBXGroup;
+			children = (
+				FP001 /* MindRingNew.app */,
+			);
+			sourceTree = "<group>";
+		};
+		G004 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F004 /* Assets.xcassets */,
+				F005 /* Resources/Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T001 /* MindRingNew */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L002 /* Build configuration list for PBXNativeTarget "MindRingNew" */;
+			buildPhases = (
+				PS001 /* Sources */,
+				PF001 /* Frameworks */,
+				PR001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MindRingNew;
+			productName = MindRingNew;
+			productReference = FP001 /* MindRingNew.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		P001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					T001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = L001 /* Build configuration list for PBXProject "MindRingNew" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = G001;
+			productRefGroup = G003;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T001 /* MindRingNew */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		PR001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B004 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		PS001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B001 /* MindRingNewApp.swift in Sources */,
+				B002 /* HomeView.swift in Sources */,
+				B006 /* ChatView.swift in Sources */,
+				B003 /* BackendClient.swift in Sources */,
+				B005 /* DesignSystem.swift in Sources */,
+				B007 /* AudioRecorder.swift in Sources */,
+				B008 /* AudioPlayer.swift in Sources */,
+				B009 /* SpeechRecognizer.swift in Sources */,
+				B010 /* SessionDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		C002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		C101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55DCKUHHH8;
+				INFOPLIST_FILE = MindRingNew/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mindring.newapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55DCKUHHH8;
+				INFOPLIST_FILE = MindRingNew/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mindring.newapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		L001 /* Build configuration list for PBXProject "MindRingNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C001 /* Debug */,
+				C002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		L002 /* Build configuration list for PBXNativeTarget "MindRingNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C101 /* Debug */,
+				C102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = P001 /* Project object */;
+}

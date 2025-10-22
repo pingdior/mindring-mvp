@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindRing · MVP1.0 UI 0.2 (English · Single Indicator)</title>
+  <style>
+    :root { --forest:#2f5d3e; --moss:#5b8a72; --earth:#b97a3c; --fog:#f9f6ef; --ink:#1f2a24; --muted:#6b7068; --card:#fff; --border:rgba(60,80,74,.14); --accent:#f1a447; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:radial-gradient(1100px 640px at 18% -12%,var(--fog) 0%,#f0e4cf 52%,#e2d2b3 100%)}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:linear-gradient(125deg,var(--forest),var(--earth));color:#fff}
+    .brandline{display:flex;align-items:center;gap:12px}
+    .brand-logo{height:40px}
+    .brandname{font-weight:800;letter-spacing:.4px}
+    main{max-width:1200px;margin:0 auto;padding:20px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .span6{grid-column:span 6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:0 20px 40px rgba(31,42,36,.12);padding:18px;margin-bottom:22px}
+    h2{margin:0 0 12px;font-size:20px;color:var(--forest)}
+    /* phone */
+    .phone{width:340px;height:680px;margin:0 auto;border-radius:28px;background:#0a0a0a;border:8px solid #0a0a0a;position:relative;overflow:hidden;box-shadow:0 28px 56px rgba(31,42,36,.25)}
+    .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:140px;height:22px;background:#0a0a0a;border-bottom-left-radius:16px;border-bottom-right-radius:16px;z-index:4}
+    .status{position:absolute;top:10px;left:16px;right:16px;color:#f1ede2;font-size:12px;display:flex;justify-content:space-between;z-index:5}
+    .screen{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;padding-top:12px}
+    .appbar{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;color:#fff;background:linear-gradient(90deg,var(--forest),var(--earth))}
+    .brand-mini{font-size:12px;opacity:.85}
+    .content{flex:1;overflow:auto;background:linear-gradient(180deg,rgba(243,231,207,.52),rgba(230,239,229,.96));padding:16px}
+    .hero{border-radius:16px;background:linear-gradient(150deg,rgba(91,138,114,.96),rgba(185,122,60,.88));color:#fff;padding:16px;display:flex;flex-direction:column;gap:8px}
+    .hero-score{font-size:32px;font-weight:700}
+    .pane{margin-top:14px;border-radius:16px;background:#fff;border:1px solid rgba(91,138,114,.18);box-shadow:0 14px 30px rgba(31,42,36,.12);padding:14px;display:flex;flex-direction:column;gap:12px}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .btn{border:none;border-radius:12px;padding:8px 14px;font-weight:600;font-size:13px;cursor:pointer}
+    .btn-primary{background:linear-gradient(120deg,var(--forest),var(--moss));color:#fff}
+    .btn-secondary{background:linear-gradient(120deg,rgba(243,231,207,.92),rgba(230,239,229,.86));color:var(--forest);border:1px solid rgba(91,138,114,.24)}
+    .mini-card{border-radius:12px;padding:8px 10px;background:rgba(185,122,60,.16);border:1px solid rgba(185,122,60,.26);color:var(--earth);font-size:12px}
+    .tag-row{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{padding:4px 10px;background:rgba(91,138,114,.16);border-radius:999px;font-size:11px;color:var(--forest)}
+    .entry{background:#fff;border-radius:14px;border:1px solid rgba(47,93,62,.14);padding:12px;margin-bottom:10px;box-shadow:0 12px 24px rgba(31,42,36,.08)}
+    .bubble{max-width:82%;padding:10px 12px;border-radius:14px;font-size:13px;line-height:1.6;margin-bottom:10px;box-shadow:0 8px 18px rgba(31,42,36,.08)}
+    .bubble.me{margin-left:auto;background:rgba(230,239,229,.85);border:1px solid rgba(91,138,114,.28)}
+    .bubble.alex{background:rgba(185,122,60,.16);border:1px solid rgba(185,122,60,.38)}
+    /* sessions stream */
+    .sessions-stream{margin-top:16px}
+    .sessions-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .sessions-title{font-size:16px;font-weight:600;color:var(--ink)}
+    .sessions-count{font-size:12px;color:var(--muted);background:rgba(91,138,114,.1);padding:3px 8px;border-radius:12px}
+    .session-card{background:#fff;border-radius:16px;border:1px solid rgba(47,93,62,.14);padding:12px;margin-bottom:10px;box-shadow:0 12px 24px rgba(31,42,36,.08)}
+    /* floating actions (UI only) */
+    .floating-actions{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;z-index:100}
+    .fab-bar{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(47,93,62,.14);box-shadow:0 12px 26px rgba(31,42,36,.15);padding:8px 12px;border-radius:28px}
+    .fab{width:44px;height:44px;border-radius:22px;border:none;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700}
+    .fab-record{background:linear-gradient(135deg,var(--forest),var(--moss));color:#fff}
+    .fab-alex{background:linear-gradient(135deg,rgba(185,122,60,.9),rgba(185,122,60,1));color:#fff}
+    .alex-avatar{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}
+    /* alex panels (shown by default) */
+    .alex-panel{background:#fff;border:1px solid rgba(47,93,62,.14);border-radius:14px;padding:12px;box-shadow:0 10px 22px rgba(31,42,36,.08);margin-top:10px}
+    .panel-title{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 8px}
+    .prompt-list{display:flex;flex-direction:column;gap:8px}
+    .prompt-card{display:flex;justify-content:space-between;align-items:center;background:rgba(185,122,60,.12);border:1px solid rgba(185,122,60,.28);border-radius:12px;padding:8px 10px;font-size:12px}
+    .prompt-meta{font-size:11px;color:var(--muted)}
+    .emotion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .emotion-chip{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;background:rgba(91,138,114,.12);border:1px solid rgba(91,138,114,.24);border-radius:12px;font-size:12px}
+    /* Growth advice & breakdown */
+    .advice-card{border-radius:16px;background:linear-gradient(180deg,rgba(243,231,207,.85),#fff);border:1px solid rgba(185,122,60,.26);padding:14px;box-shadow:0 12px 24px rgba(31,42,36,.08)}
+    .advice-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .advice-chip{padding:6px 10px;border-radius:12px;background:rgba(91,138,114,.12);border:1px solid rgba(91,138,114,.24);font-size:12px;color:var(--forest)}
+    .breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .metric{background:#fff;border:1px solid rgba(47,93,62,.14);border-radius:14px;padding:12px;text-align:center}
+    .metric strong{display:block;font-size:18px;color:var(--forest);margin-bottom:4px}
+      /* Recording modal */
+    .record-modal{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:200}
+    .record-modal-sidebar{position:sticky;top:20px;height:fit-content;z-index:100}
+    .record-card{width:100%;background:#fff;border:1px solid rgba(47,93,62,.18);border-radius:16px;box-shadow:0 18px 36px rgba(31,42,36,.18);padding:14px}
+    .record-header{display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--forest)}
+    .record-close{border:none;background:transparent;font-size:18px;cursor:pointer}
+    .record-timer{font-size:28px;font-weight:700;text-align:center;margin:10px 0;color:var(--ink)}
+    .record-controls{display:flex;gap:14px;align-items:center;justify-content:center;margin-top:6px}
+    .record-circle-btn{width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--forest),var(--moss));box-shadow:0 10px 22px rgba(31,42,36,.16)}
+    .record-circle-btn.danger{background:linear-gradient(135deg,#c2410c,#ea580c)}
+    .record-actions{display:flex;gap:10px;justify-content:center;margin-top:12px}
+</style>
+</head>
+<body>
+  <header>
+    <div class="brandline">
+      <img class="brand-logo" src="../design/mindringforlogo.png" alt="MindRing Logo" />
+      <span class="brandname">MindRing</span>
+    </div>
+    <div>
+      <h1 style="margin:0;font-size:20px">MVP1.0 UI 0.2 · Single Indicator (Self‑Awareness)</h1>
+      <p style="margin:6px 0 0;opacity:.9;font-size:13px">Capture in 2s → Instant feedback → Today’s Deep Dive. English‑first static prototype.</p>
+    </div>
+  </header>
+  <main>
+    <!-- Home (Self‑Awareness Compass) -->
+    <section class="card">
+      <h2>Home</h2>
+      <div class="grid">
+        <div class="span4">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="status"><span>9:41</span><span></span></div>
+            <div class="screen">
+              <div class="appbar"><span style="font-weight:600">Home</span><span class="brand-mini">MindRing</span></div>
+              <div class="content">
+                <div class="hero">
+                  <div>Today's Self‑Awareness Compass</div>
+                  <div class="hero-score">72</div>
+                  <div class="mini-card">24h view · emotion granularity + today's reflection.</div>
+                </div>
+                <div class="sessions-stream" id="home-sessions">
+                  <div class="sessions-header"><div class="sessions-title">Recent Sessions</div><div class="sessions-count">5 today</div></div>
+                  <div class="session-card" style="background:linear-gradient(135deg,rgba(185,122,60,.08),rgba(185,122,60,.12));border-color:rgba(185,122,60,.28);cursor:pointer" onclick="showScreen('daily-deep-dive')">
+                    <div style="font-size:11px;color:var(--muted)">Today · Deep Dive</div>
+                    <h4 style="margin:6px 0">Today's Deep Dive</h4>
+                    <p style="margin:0 0 6px">Reflect on your emotional patterns and insights.</p>
+                    <div class="tag-row"><span class="tag">Reflection</span><span class="tag">Self-Awareness</span></div>
+                  </div>
+                  <div class="session-card">
+                    <div style="font-size:11px;color:var(--muted)">Today · 10:24 · Office · Ring</div>
+                    <h4 style="margin:6px 0">Sprint Alignment</h4>
+                    <p style="margin:0 0 6px">Confirmed rhythm, surfaced data gap.</p>
+                    <div class="tag-row"><span class="tag">Self‑Awareness</span><span class="tag">Energized + Wary</span></div>
+                  </div>
+                  <div class="session-card">
+                    <div style="font-size:11px;color:var(--muted)">Yesterday · 9:03 PM · Home</div>
+                    <h4 style="margin:6px 0">Alex Follow‑up</h4>
+                    <p style="margin:0 0 6px">Named blind spots, emotion shifts tracked.</p>
+                    <div class="tag-row"><span class="tag">Curious</span><span class="tag">Focused</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="floating-actions">
+                <div class="fab-bar">
+                  <button class="fab fab-record" title="Start Recording" aria-label="Start Recording">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="10" y="4" width="4" height="8" rx="2" fill="#fff"/>
+                      <path d="M6 11c0 3 2.7 5 6 5s6-2 6-5" stroke="#fff" stroke-width="2" fill="none"/>
+                      <path d="M12 16v4" stroke="#fff" stroke-width="2"/>
+                      <path d="M9 20h6" stroke="#fff" stroke-width="2"/>
+                    </svg>
+                  </button>
+                  <button class="fab fab-alex" title="Chat with Alex" aria-label="Chat with Alex"><div class="alex-avatar">A</div></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span2">
+          <div id="record-modal" class="record-modal-sidebar" hidden>
+            <div class="record-card">
+              <div class="record-header"><span>Recording</span><button class="record-close" id="record-close">×</button></div>
+              <div class="record-timer" id="record-timer">00:00</div>
+              <div class="record-controls">
+                <button class="record-circle-btn" id="record-start">Start</button>
+                <button class="record-circle-btn danger" id="record-stop" disabled>Stop</button>
+              </div>
+              <div class="record-actions">
+                <button class="btn btn-primary" id="record-save" disabled>Save to feed</button>
+                <button class="btn btn-secondary" id="record-discard">Discard</button>
+              </div>
+              <div class="mini-card" style="margin-top:10px">Mic captures a short note. Saving adds a new session card at the top.</div>
+            </div>
+          </div>
+        </div>
+        <div class="span6"><p style="color:var(--muted)">Single‑indicator mode focuses on Self‑Awareness: emotion granularity + today’s reflection consistency.</p></div>
+      </div>
+    </section>
+
+    <!-- Session Detail (static) -->
+    <section class="card">
+      <h2>Session Detail</h2>
+      <div class="grid">
+        <div class="span6">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="status"><span>9:41</span><span></span></div>
+            <div class="screen">
+              <div class="appbar"><span style="font-weight:600">Session Detail</span><span class="brand-mini">Source & Transcript</span></div>
+              <div class="content">
+                <div class="mini-card">Original recording · 02:18 · Transcription ready</div>
+                <div class="pane">
+                  <div class="row"><strong>Key Takeaways</strong><button class="btn btn-secondary">Edit Summary</button></div>
+                  <p style="margin:0 0 8px">1) Hidden data risk. 2) Co‑create outreach. 3) Prepare for today’s reflection.</p>
+                  <div class="row"><strong>AI Tags</strong><button class="btn btn-secondary">Add Tag</button></div>
+                  <div class="tag-row"><span class="tag">Strategy</span><span class="tag">Risk</span><span class="tag">Alex Suggested</span></div>
+                  <div class="row"><strong>Source</strong><button class="btn btn-primary">Play Original Audio</button></div>
+                  <button class="btn btn-secondary" style="width:100%">View Full Transcript</button>
+                  <div class="row"><strong>Next Step</strong><button class="btn btn-primary">Send to Today’s Deep Dive</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span6"><p style="color:var(--muted)">The detail view shows summary, AI tags, and original source controls, with a clear hand‑off to today’s reflection.</p></div>
+      </div>
+    </section>
+
+    <!-- Alex Companion (panels shown) -->
+    <section class="card">
+      <h2>Alex Companion</h2>
+      <div class="grid">
+        <div class="span6">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="status"><span>9:41</span><span></span></div>
+            <div class="screen">
+              <div class="appbar"><span style="font-weight:600">Talk with Alex</span><span class="brand-mini">Focused Listener</span></div>
+              <div class="content">
+                <div class="row" style="justify-content:flex-start;gap:10px"><div class="mini-card">Alex notices “Energized + Wary” today.</div></div>
+                <div class="bubble alex">I heard both excitement and worry. Which part feels most uncertain?</div>
+                <div class="bubble me">Unsure if the data will arrive in time.</div>
+                <div class="bubble alex">Let’s explore the gatekeeper. I can line up three outreach prompts.</div>
+                <div class="pane">
+                  <div class="row"><strong>Suggested Next Move</strong><button class="btn btn-primary">Review Prompts</button></div>
+                  <div class="row"><strong>Emotion Check‑in</strong><button class="btn btn-secondary">Log Feelings</button></div>
+                </div>
+                <div class="alex-panel">
+                  <div class="panel-title">Suggested Prompts</div>
+                  <div class="prompt-list">
+                    <div class="prompt-card" style="cursor:pointer" onclick="expandPromptInChat(this)"><span>• Reach out to data owner · ask for delivery window</span><span class="prompt-meta">~2 min chat</span></div>
+                    <div class="prompt-card" style="cursor:pointer" onclick="expandPromptInChat(this)"><span>• Prepare fallback dataset · define acceptance criteria</span><span class="prompt-meta">Plan · 5 min</span></div>
+                    <div class="prompt-card" style="cursor:pointer" onclick="expandPromptInChat(this)"><span>• Clarify dependency · list who can unblock</span><span class="prompt-meta">Note · 3 min</span></div>
+                  </div>
+                </div>
+                <div class="alex-panel">
+                  <div class="panel-title">Log Feelings</div>
+                  <div class="emotion-grid">
+                    <div class="emotion-chip">😊 Curious</div>
+                    <div class="emotion-chip">😌 Calm</div>
+                    <div class="emotion-chip">⚡️ Excited</div>
+                    <div class="emotion-chip">🤔 Wary</div>
+                    <div class="emotion-chip">😣 Stressed</div>
+                    <div class="emotion-chip">🙏 Grateful</div>
+                  </div>
+                  <div class="mini-card" style="margin-top:10px">Tip: use specific words or composite emotions (e.g., “Curious + Wary”).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span6"><p style="color:var(--muted)">This page highlights the two core actions for Self‑Awareness: concrete emotions and a short reflection.</p></div>
+      </div>
+    </section>
+
+    <!-- Today’s Deep Dive (static) -->
+    <section class="card">
+      <h2>Today’s Deep Dive</h2>
+      <div class="grid">
+        <div class="span6">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="status"><span>9:41</span><span></span></div>
+            <div class="screen">
+              <div class="appbar"><span style="font-weight:600">Today’s Deep Dive</span><span class="brand-mini">Short · ~6 min</span></div>
+              <div class="content">
+                <div class="pane">
+                  <div style="font-size:12px;color:var(--muted)">Today’s open probe</div>
+                  <h3 style="margin:6px 0 8px;font-size:16px">If your assumption fails today, what collapses first?</h3>
+                  <p style="margin:0">Linked sessions: “Sprint Alignment”.</p>
+                  <div class="mini-card">Goal: name the hidden assumption and the first collapse point. Keep it to one sentence each.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span6"><p style="color:var(--muted)">Finish your reflection to update the Self‑Awareness score for the past 24h.</p></div>
+      </div>
+    </section>
+
+    <!-- Growth Tracking (Self‑Awareness only) -->
+    <section class="card">
+      <h2>Self‑Awareness Compass (Past 24h)</h2>
+      <div class="grid">
+        <div class="span6">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="status"><span>9:41</span><span></span></div>
+            <div class="screen">
+              <div class="appbar"><span style="font-weight:600">Growth Tracking</span><span class="brand-mini">Self‑Awareness · 24h</span></div>
+              <div class="content">
+                <div class="pane">
+                  <div class="row"><strong>Self‑Awareness</strong><span style="font-weight:700;color:var(--forest);font-size:48px">72</span></div>
+                  <div class="tag-row" style="margin-top:6px"><span id="top-emotion-label" class="tag">Top Emotion: Focused</span><span class="tag">Reflections: 1</span></div>
+                  <button id="breakdown-toggle" class="btn btn-secondary" style="width:100%;margin-top:8px" aria-expanded="false">View Score Breakdown</button>
+                  <div id="breakdown-panel" class="breakdown" hidden>
+                    <div class="metric"><strong>0.62</strong>Emotion granularity (EG)</div>
+                    <div class="metric"><strong>0.92</strong>Today’s reflection (RC)</div>
+                    <div class="metric"><strong>0.54</strong>Consistency (EMA)</div>
+                  </div>
+                  <div class="mini-card" id="breakdown-copy" hidden style="margin-top:8px">EG: specificity/compositeness in 24h. RC: completed guided reflection. EMA: stabilizes recent days. Example components above ≈ total 72.</div>
+                </div>
+                <div class="advice-card" style="margin-top:12px">
+                  <div style="font-weight:600;color:var(--forest);margin-bottom:6px">Today’s Advice</div>
+                  <div class="advice-list">
+                    <span class="advice-chip">Write one composite emotion (e.g., “Curious + Wary”).</span>
+                    <span class="advice-chip">Name the hidden assumption and the worry behind it.</span>
+                    <span class="advice-chip">Add one sentence: why does this matter today?</span>
+                  </div>
+                </div>
+                <div class="mini-card" style="margin-top:10px">Scoring is calibrated to your recent baseline; it reflects clarity, not productivity.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span6"><p style="color:var(--muted)">This single‑indicator view emphasizes clarity of emotion and premise. Trends use EMA to avoid noisy jumps.</p></div>
+      </div>
+    </section>
+  </main>
+<script>
+(function(){
+  const fabRecord = document.querySelector('.fab-record');
+  const modal = document.getElementById('record-modal');
+  const timerEl = document.getElementById('record-timer');
+  const startBtn = document.getElementById('record-start');
+  const stopBtn = document.getElementById('record-stop');
+  const saveBtn = document.getElementById('record-save');
+  const discardBtn = document.getElementById('record-discard');
+  const closeBtn = document.getElementById('record-close');
+  const feed = document.getElementById('home-sessions');
+
+  let secs = 0; let tick = null; let recording = false;
+  const fmt = s => { const m = Math.floor(s/60), ss = s % 60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); };
+  function open(){ modal.hidden = false; secs = 0; timerEl.textContent='00:00'; startBtn.disabled=false; stopBtn.disabled=true; saveBtn.disabled=true; recording=false; }
+  function close(){ modal.hidden = true; if(tick){clearInterval(tick); tick=null;} }
+  function start(){ if(recording) return; recording=true; startBtn.disabled=true; stopBtn.disabled=false; saveBtn.disabled=true; tick = setInterval(()=>{ secs++; timerEl.textContent = fmt(secs); },1000); }
+  function stop(){ if(!recording) return; recording=false; stopBtn.disabled=true; saveBtn.disabled=false; if(tick){clearInterval(tick); tick=null;} }
+  function save(){ const minutes = Math.ceil(secs/60)||1; const now = new Date(); const timeStr = now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); const card = `
+      <div class="session-card">
+        <div style="font-size:11px;color:var(--muted)">Today · ${timeStr} · Office · Ring</div>
+        <h4 style="margin:6px 0">Quick Capture</h4>
+        <p style="margin:0 0 6px">Recorded note · ${minutes} min${minutes>1?'s':''}.</p>
+        <div class="tag-row"><span class="tag">Self‑Awareness</span><span class="tag">New</span></div>
+      </div>`; if(feed){ feed.insertAdjacentHTML('afterbegin', card); } close(); }
+
+  fabRecord && fabRecord.addEventListener('click', open);
+  startBtn && startBtn.addEventListener('click', start);
+  stopBtn && stopBtn.addEventListener('click', stop);
+  saveBtn && saveBtn.addEventListener('click', save);
+  discardBtn && discardBtn.addEventListener('click', close);
+  closeBtn && closeBtn.addEventListener('click', close);
+})();
+
+// Score Breakdown toggle
+(function(){
+  const btn = document.getElementById('breakdown-toggle');
+  const panel = document.getElementById('breakdown-panel');
+  const copy = document.getElementById('breakdown-copy');
+  if(!btn || !panel) return;
+  btn.addEventListener('click', ()=>{
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if(expanded){
+      panel.hidden = true;
+      copy && (copy.hidden = true);
+      btn.setAttribute('aria-expanded','false');
+      btn.textContent = 'View Score Breakdown';
+    } else {
+      panel.hidden = false;
+      copy && (copy.hidden = false);
+      btn.setAttribute('aria-expanded','true');
+      btn.textContent = 'Hide Score Breakdown';
+    }
+  });
+})();
+
+// Alex prompt expansion function
+function expandPromptInChat(promptCard) {
+  const promptText = promptCard.querySelector('span').textContent;
+  const alexContent = promptCard.closest('.screen').querySelector('.content');
+  
+  // Add user message
+  const userBubble = document.createElement('div');
+  userBubble.className = 'bubble me';
+  userBubble.textContent = promptText.replace('• ', '');
+  
+  // Add Alex response
+  const alexBubble = document.createElement('div');
+  alexBubble.className = 'bubble alex';
+  alexBubble.textContent = "Great choice! Let me help you break this down into actionable steps...";
+  
+  // Insert after the last bubble
+  const lastBubble = alexContent.querySelector('.bubble:last-of-type');
+  if (lastBubble) {
+    lastBubble.insertAdjacentElement('afterend', userBubble);
+    userBubble.insertAdjacentElement('afterend', alexBubble);
+  }
+  
+  // Hide the prompt panel
+  promptCard.closest('.alex-panel').style.display = 'none';
+}
+</script>
+</body>
+</html>

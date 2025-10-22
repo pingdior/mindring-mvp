@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MindRing 附加规范：探针卡组 / O-Index示例 / 隐私面板 / 心智模型交互</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Noto Sans CJK", "Microsoft YaHei", Arial, sans-serif;
+      color: #1f2937;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+      color: #fff;
+      padding: 48px 24px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    header h1 {
+      margin: 0 0 12px 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    header .subtitle {
+      font-size: 14px;
+      color: #cbd5e1;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    
+    section {
+      margin-bottom: 32px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      color: #111827;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    h2::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 18px;
+      color: #1f2937;
+      margin: 0 0 12px 0;
+      font-weight: 600;
+    }
+    
+    h4 {
+      font-size: 16px;
+      color: #374151;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+    }
+    
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.08);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .probe-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    
+    .probe-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    }
+    
+    .probe-card h3 {
+      color: #667eea;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .probe-card h3::before {
+      content: '🎯';
+      font-size: 20px;
+    }
+    
+    .feature-card {
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      border-color: #10b981;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+    
+    .feature-card h3 {
+      color: #10b981;
+      margin-bottom: 12px;
+    }
+    
+    .ui {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px dashed #f59e0b;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 12px 0;
+    }
+    
+    ul {
+      margin: 12px 0 12px 24px;
+      padding: 0;
+    }
+    
+    ul li {
+      margin-bottom: 8px;
+    }
+    
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      margin: 4px 6px 4px 0;
+      transition: all 0.2s;
+    }
+    
+    .pill:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+    
+    .tag {
+      font-size: 12px;
+      color: #4f46e5;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin: 4px 6px 4px 0;
+      display: inline-block;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .tag:hover {
+      background: #4f46e5;
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    code, pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      display: block;
+      overflow: auto;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .hint {
+      font-size: 14px;
+      color: #6b7280;
+      background: #f9fafb;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 4px solid #9ca3af;
+      margin: 12px 0;
+    }
+    
+    .ok {
+      color: #16a34a;
+      font-weight: 600;
+    }
+    
+    .risk {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .icon {
+      font-size: 32px;
+    }
+    
+    footer {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+      color: #cbd5e1;
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 48px;
+      font-size: 14px;
+    }
+    
+    .privacy-control {
+      background: white;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 12px 0;
+    }
+    
+    .privacy-control h4 {
+      color: #3b82f6;
+      margin-bottom: 12px;
+    }
+    
+    hr {
+      border: none;
+      border-top: 2px dashed #e5e7eb;
+      margin: 24px 0;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 24px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      h2 {
+        font-size: 20px;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 MindRing 附加规范</h1>
+    <p class="subtitle">探针卡组详细问题库 · O-Index特征正反示例 · 隐私面板文案 · 心智模型标签云交互说明</p>
+  </header>
+  
+  <main>
+    <section class="card">
+      <div class="section-header">
+        <span class="icon">🎯</span>
+        <h2>探针卡组（Socratic Probe Deck）详细问题库</h2>
+      </div>
+      <p class="hint">用途：在Weekly Deep Dive与Topic Sprint中,Alex基于用户当周内容与特征,选择合适探针卡以引导"发散-对抗-收敛"。每张卡包含：触发条件、示例问题、后续推进、对应可测特征。</p>
+      
+      <div class="grid">
+        <div class="probe-card">
+          <h3>反例检验（Counterexample）</h3>
+          <ul>
+            <li><strong>触发：</strong>用户出现强断言、少有反证；多视角度偏低。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"如果你的核心判断是错的,最可能错在哪里？有没有历史案例支持这个反例？"</li>
+                <li>"有哪些条件成立时,你的结论会不再成立？"</li>
+                <li>"站在主要反对者视角,他们的最佳论据是什么？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>要求至少一次具体反证＋一个小型验证行动。</li>
+            <li><strong>对应特征：</strong><span class="pill">multi_perspective↑</span><span class="pill">premise_explicitness↑</span><span class="pill">time_linkage↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>迁移类比（Analogy Transfer）</h3>
+          <ul>
+            <li><strong>触发：</strong>主题陷于本域；缺少跨域连接；创新度不足。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"在其他领域有相似问题被如何解决？有哪些可迁移的结构或约束？"</li>
+                <li>"选一个完全不同的行业/艺术/自然系统,映射你的问题会得到什么启发？"</li>
+                <li>"如果把你的问题看成'生态系统',哪些物种/资源/竞争关系对应你当前的要素？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>产出2个可执行的跨域启发方案,选1个试验。</li>
+            <li><strong>对应特征：</strong><span class="pill">multi_perspective↑</span><span class="pill">生发度↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>约束重构（Constraint Reframe）</h3>
+          <ul>
+            <li><strong>触发：</strong>资源/时间受限导致停滞；抱怨约束但未重构策略。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"如果预算只有现在的20%,你会如何设计最小可行方案？"</li>
+                <li>"把关键约束当作设计素材：能否利用它形成差异化？"</li>
+                <li>"如果只能在两周内完成,你的路线图是什么？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>产出一个"约束驱动"的方案与风险假设清单。</li>
+            <li><strong>对应特征：</strong><span class="pill">premise_explicitness↑</span><span class="pill">整合度↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>角色互换（Role Reversal）</h3>
+          <ul>
+            <li><strong>触发：</strong>他人视角理解不足；外在觉察弱；关系张力。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"如果你是对方（同事/用户/伴侣）,你会如何评价你的方案？最在意的风险是什么？"</li>
+                <li>"对方做出当前行为的'善意解释'可能是什么？"</li>
+                <li>"对方的成功指标是什么？你的方案满足了吗？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>列出对方三项动机或约束,调整自身方案。</li>
+            <li><strong>对应特征：</strong><span class="pill">multi_perspective↑</span><span class="pill">自我觉察度↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>降维/本质化（Reduction to Essence）</h3>
+          <ul>
+            <li><strong>触发：</strong>问题表述复杂、枝叶繁多；前提未显性化。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"把问题压缩为一句'命题'：你究竟在试图证明什么？"</li>
+                <li>"列出三个不可缺少的变量,其余都是噪音？"</li>
+                <li>"如果只允许一个行动来测试本质,你会选哪个？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>产出"命题-前提-证据"的最小证据链。</li>
+            <li><strong>对应特征：</strong><span class="pill">premise_explicitness↑</span><span class="pill">整合度↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>边界与能量（Boundary & Energy）</h3>
+          <ul>
+            <li><strong>触发：</strong>情绪耗竭、混淆自他情绪、高敏感者过载。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"这情绪是你的还是他人的？证据是什么？"</li>
+                <li>"本周你的能量来源与耗损各是什么？如何做一个'能量预算'？"</li>
+                <li>"哪一个'拒绝'可以为你带来最大净收益？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>制定一项边界练习与一次情绪清空仪式。</li>
+            <li><strong>对应特征：</strong><span class="pill">自我觉察度↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>风险前视（Forward Risking / Ni训练）</h3>
+          <ul>
+            <li><strong>触发：</strong>短视冲动（ESTP/ESFP倾向）,缺少长期后果评估。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"这个决定在1天/1月/1年后的可能影响是什么？"</li>
+                <li>"最坏情况是什么？你的应对预案？"</li>
+                <li>"有哪些早期信号可以告诉你需要调整？"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>形成'三时段影响表'与'最坏情况对策'。</li>
+            <li><strong>对应特征：</strong><span class="pill">整合度↑</span><span class="pill">time_linkage↑</span></li>
+          </ul>
+        </div>
+        
+        <div class="probe-card">
+          <h3>真实与脆弱（Authenticity & Vulnerability）</h3>
+          <ul>
+            <li><strong>触发：</strong>过度"解决方案化",忽视情感（ENTJ/三号成就者）。</li>
+            <li><strong>示例问题：</strong>
+              <ul>
+                <li>"你此刻真正的感受是什么？若不解决,只是陪伴,你会如何表达？"</li>
+                <li>"你把价值与成就绑定的证据来自哪里？若不表现,你仍有价值吗？"</li>
+                <li>"写一段'非解决方案'的回应给重要的人。"</li>
+              </ul>
+            </li>
+            <li><strong>后续推进：</strong>一次"无方案的陪伴"练习与反思。</li>
+            <li><strong>对应特征：</strong><span class="pill">自我觉察度↑</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="section-header">
+        <span class="icon">📊</span>
+        <h2>O-Index 特征的正反示例集</h2>
+      </div>
+      <p class="hint">目的：为特征抽取提供"正例/反例/边界例"的文本示范,便于规则迭代与标注训练；为用户透明解释提供可视化证据。</p>
+      
+      <div class="grid">
+        <div class="feature-card">
+          <h3>特征A：多视角度（Multi-Perspective）</h3>
+          <p><strong>定义：</strong>同一主题中出现支持、反驳、替代方案或界限条件的表达。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"我支持X,因为A/B。但另一方面,Y可能导致失败。替代方案是Z。"</li>
+            <li>"在资源充足时X成立；若预算减半,该结论不一定成立（界限条件）。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>"X就是对的。"（无任何反证或替代）</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>"有人不同意,但我不在乎。"（提到反对但未给论据,不计分或低权重）</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>特征B：前提显性化率（Premise Explicitness）</h3>
+          <p><strong>定义：</strong>显式说明假设/前提/条件的比例。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"前提是我们有A资源；如果A缺失,则策略需改为B。"</li>
+            <li>"在假设C成立的情况下,我的结论为D。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>"我们就这么做吧。"（无前提或条件说明）</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>"应该可以。"（暗含假设但未明确,低权重）</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>特征C：跨时间引用（Time Linkage）</h3>
+          <p><strong>定义：</strong>引用历史记录或跨时间对比的次数与跨度。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"这让我想起半年前的记录 #rec045（链接）,当时我认为……"</li>
+            <li>"与上周的实验相比,本周结果更稳。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>完全不引用或对比任何过去记录。</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>"上次好像也这样。"（未绑定具体记录,低权重）</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>特征D：情绪精细度（Emotion Granularity）</h3>
+          <p><strong>定义：</strong>从粗糙到细粒度的情绪命名与区分能力。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"我不是'不开心',而是'失望＋轻微焦虑',同时对未知有'好奇'。"</li>
+            <li>"愤怒里夹杂着不被尊重的感觉（羞辱）,强度7/10,持续约2小时。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>"心情不好。"（模糊）</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>使用一个情绪词但与行为不匹配（需要纠偏机制）。</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>特征E：整合度（Integration Depth）</h3>
+          <p><strong>定义：</strong>是否形成"命题-前提-证据-反证-行动"的结构化链条。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"命题X；前提A/B；证据C；反证D；行动E（两周内检验）。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>"我有个想法X。"（无结构）</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>"命题X；证据C。"（缺前提/反证/行动,部分积分）</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <h3>特征F：动机透明度（Motivation Transparency）</h3>
+          <p><strong>定义：</strong>对行动背后真实动机的自我揭示（承认认可驱动/回避恐惧等）。</p>
+          <p><strong class="ok">✓ 正例：</strong></p>
+          <ul>
+            <li>"我急于给方案不是为了效率,而是害怕被看作无用。"</li>
+            <li>"我拒绝这个合作,主要动机是保持自主性,而非商业利益。"</li>
+          </ul>
+          <p><strong class="risk">✗ 反例：</strong></p>
+          <ul>
+            <li>给出表层理由,不承认更深动机（常见防御）。</li>
+          </ul>
+          <p><strong>⚠ 边界例：</strong></p>
+          <ul>
+            <li>"也许是因为面子吧。"（不明确,低权重）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="card">
+      <div class="section-header">
+        <span class="icon">🔒</span>
+        <h2>隐私面板文案（用户端透明说明与控制接口）</h2>
+      </div>
+      
+      <div class="grid">
+        <div class="privacy-control">
+          <h4>🛡️ 隐私首页（简版文案）</h4>
+          <div class="ui">
+            <p><strong>你的思绪属于你。</strong>MindRing默认采用本地优先与端到端加密。除非你明确授权,我们不会使用你的内容做任何对外分析或共享。</p>
+            <ul>
+              <li><strong>数据路径：</strong>录音与转写在本地完成；云端仅做加密备份与你授权的指标汇总。</li>
+              <li><strong>可解释指标：</strong>每一个成长指标都附有"计算方法与来源片段",你可以查看、纠偏或隐藏。</li>
+              <li><strong>你的控制权：</strong>一键导出、一键清除、时限分享（到期自毁）。密钥可由你自管。</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="privacy-control">
+          <h4>📐 "如何计算"说明（示例）</h4>
+          <div class="ui">
+            <p><strong>多视角度如何计算？</strong></p>
+            <ul>
+              <li>我们在你的文本中识别"支持/反驳/替代/界限条件"的表达（例如"但是/另一方面/在…条件下"）。</li>
+              <li>仅当该表达伴随具体论据或行动时计为有效,否则权重降低。</li>
+              <li>你可以点击"来源片段"查看具体句子,并标记"误判/不适用"。</li>
+            </ul>
+            <p><strong>前提显性化率如何计算？</strong></p>
+            <ul>
+              <li>识别"前提是/我假设/如果…那么/在…条件下"等句式。</li>
+              <li>若仅隐含而未明确说明,则不计或低权重。</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="privacy-control">
+          <h4>⚙️ 控制接口（文案与开关）</h4>
+          <div class="

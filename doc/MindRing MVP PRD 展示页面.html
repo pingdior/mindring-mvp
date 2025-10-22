@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MindRing MVP PRD（P0/P1/P2 一体化文档）</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Noto Sans CJK", "Microsoft YaHei", Arial, sans-serif;
+      color: #222;
+      margin: 0;
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      padding: 32px 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    header p {
+      margin: 12px 0 0;
+      opacity: .92;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    .hint {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+    
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    
+    section {
+      margin-bottom: 32px;
+    }
+    
+    h2 {
+      font-size: 22px;
+      margin: 0 0 20px;
+      color: #0f172a;
+      font-weight: 700;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 8px;
+    }
+    
+    h3 {
+      font-size: 18px;
+      margin: 16px 0 12px;
+      color: #1e293b;
+      font-weight: 600;
+    }
+    
+    h4 {
+      font-size: 16px;
+      margin: 14px 0 10px;
+      color: #334155;
+      font-weight: 600;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+    
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      transform: translateY(-2px);
+    }
+    
+    .span6 { grid-column: span 6; }
+    .span4 { grid-column: span 4; }
+    .span8 { grid-column: span 8; }
+    .span12 { grid-column: span 12; }
+    
+    @media (max-width: 1024px) {
+      .span6, .span4, .span8 { grid-column: span 12; }
+    }
+    
+    code, pre {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px;
+      display: block;
+      overflow: auto;
+      font-size: 13px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      line-height: 1.5;
+    }
+    
+    ul {
+      margin: 12px 0 16px 20px;
+      padding: 0;
+    }
+    
+    ul li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
+    
+    .tag {
+      font-size: 12px;
+      color: #3730a3;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+      display: inline-block;
+      font-weight: 500;
+    }
+    
+    .kpi {
+      background: #cffafe;
+      border: 1px solid #06b6d4;
+      color: #0e7490;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .ui {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+    
+    .ui p {
+      margin: 8px 0;
+    }
+    
+    .ui hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 12px 0;
+    }
+    
+    .ok { color: #16a34a; font-weight: 600; }
+    .risk { 
+      color: #dc2626; 
+      font-weight: 700;
+      background: #fee2e2;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    
+    .flex {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+      background: #fff;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 32px;
+      font-size: 14px;
+    }
+    
+    .phase-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    
+    .phase-p0 {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 1px solid #3b82f6;
+    }
+    
+    .phase-p1 {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #f59e0b;
+    }
+    
+    .phase-p2 {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #22c55e;
+    }
+    
+    .toc {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    
+    .toc h3 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 18px;
+    }
+    
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .toc li {
+      padding: 6px 0;
+    }
+    
+    .toc a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .toc a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 MindRing MVP PRD（P0 / P1 / P2）</h1>
+    <p><strong>愿景：</strong>为独立思考者提供思绪庇护所。以无感捕捉＋启发式AI伙伴（Alex）＋可解释的成长指标（O-Index）构建从记录—复盘—生发—洞察—关系深化的闭环。</p>
+    <p class="hint">版本：v4.1（MVP整合稿） | 更新：2025-10-18 | 密级：核心机密</p>
+  </header>
+  
+  <main>
+    <div class="toc">
+      <h3>📑 文档导航</h3>
+      <ul>
+        <li><a href="#strategy">总体策略与阶段目标</a></li>
+        <li><a href="#hardware">硬件PRD：MindRing</a></li>
+        <li><a href="#software">软件与AI伙伴PRD</a></li>
+        <li><a href="#oindex">O-Index（可测量成长）</a></li>
+        <li><a href="#process">模块级核心业务流程</a></li>
+        <li><a href="#ui">关键UI样稿</a></li>
+        <li><a href="#tech">技术实现与接口</a></li>
+        <li><a href="#milestone">里程碑、KPI与风险控制</a></li>
+      </ul>
+    </div>
+
+    <section id="strategy" class="card span12">
+      <h2>📊 总体策略与阶段目标</h2>
+      <div class="grid">
+        <div class="span4">
+          <span class="phase-badge phase-p0">P0 (V1)</span>
+          <h3>捕捉与最小可测</h3>
+          <ul>
+            <li><strong>目标：</strong>验证"2秒捕捉-即时反馈-周度复盘"的核心闭环；建立轻量O-Index v0.1。</li>
+            <li><strong>范围：</strong>硬件Ring v1.0（单击录音/震动反馈/OTA），App v1.0（记录流、转写、基础情境元数据、Alex作为专注倾听者）。</li>
+            <li><strong>指标最小集：</strong>反思频次、Deep Dive完成率、对话轮次、细粒度情绪词使用率、多视角度、前提显性化率、跨时间引用次数。</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <span class="phase-badge phase-p1">P1 (V2)</span>
+          <h3>深度复盘与关系升温</h3>
+          <ul>
+            <li><strong>目标：</strong>引入Topic Sprint与探针卡组；O-Index拆解为"生发度/整合度/自我觉察度"。</li>
+            <li><strong>范围：</strong>Ring v1.1（功耗优化可选）、App v1.1（每周Deep Dive、手动情感标记、思绪森林v1.1、洞察徽章v1.0）、Alex变为模式发现者。</li>
+            <li><strong>新增：</strong>引入周度3问自评（≤2分钟），趋势化展示与纠偏。</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <span class="phase-badge phase-p2">P2 (V3)</span>
+          <h3>主动探索与亲密无间</h3>
+          <ul>
+            <li><strong>目标：</strong>原創性教练化，心智模型可视化，轻社交验证；反思挑战与跨时间关联提问。</li>
+            <li><strong>范围：</strong>Ring v1.2（长按自定义标签）、App v1.2（高级搜索、心智模型标签云、思绪森林v1.2）、Alex成为苏格拉底式提问者。</li>
+            <li><strong>可选：</strong>短版人格量表作为训练路径适配因子（不固化标签）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="hardware" class="card span12">
+      <h2>⌚ 硬件PRD：MindRing（v1.0 → v1.2）</h2>
+      <div class="grid">
+        <div class="span6">
+          <h3>通用规格</h3>
+          <ul>
+            <li><strong>麦克风：</strong>高品质MEMS麦克风阵列，支援降噪（指向性优化MVP可选）</li>
+            <li><strong>震动：</strong>线性马达，短震/长震两档反馈</li>
+            <li><strong>MCU：</strong>低功耗蓝牙MCU（BLE 5.x）</li>
+            <li><strong>电池与续航：</strong>5-7天</li>
+            <li><strong>防护：</strong>IP68</li>
+            <li><strong>交互：</strong>单一实体按键（单击录音开/关；长按自定义标签于v1.2启用）</li>
+            <li><strong>固件：</strong>稳定OTA（v1.0基础、v1.1功耗优化、v1.2标签固件支持）</li>
+          </ul>
+        </div>
+        <div class="span6">
+          <h3>版本演进</h3>
+          <ul>
+            <li><span class="phase-badge phase-p0">v1.0</span> 稳定蓝牙配对＋OTA；单击录音；精确震动反馈；状态LED（微光）可选。</li>
+            <li><span class="phase-badge phase-p1">v1.1</span> 功耗参数优化（睡眠阈值、广播间隔）；麦克风触发灵敏度调参能力。</li>
+            <li><span class="phase-badge phase-p2">v1.2</span> 长按自定义标签（本地缓存，上传后绑定记录）；多样震动模式提示（挑战任务/Deep Dive提醒）。</li>
+          </ul>
+        </div>
+        <div class="span12">
+          <h4>硬件→App 核心业务流程（P0）</h4>
+          <pre>1) 用户单击Ring → 开始录音（本地缓存，BLE传输至App）
+2) App接收音频流 → 端侧转写（或离线缓存，回联云端转写）
+3) 自动采集情境元数据（时间/地点/设备/日历上下文）→ 生成记录卡
+4) 即时反馈：3句摘要＋主题标签（可一键确认）
+5) Alex以"专注倾听者"欢迎与复述 → 结束后生成"思考种子卡"</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="software" class="card span12">
+      <h2>📱 软件与AI伙伴 PRD（分版本）</h2>
+      <div class="grid">
+        <div class="span4">
+          <span class="phase-badge phase-p0">P0 / App v1.0</span>
+          <h3>基础功能</h3>
+          <ul>
+            <li><strong>记录流：</strong>列表含情境元数据、播放、转写文本、自动标签。</li>
+            <li><strong>即时摘要：</strong>3句要点＋2-4个主题标签（可编辑）。</li>
+            <li><strong>Alex（倾听者）：</strong>复述与情绪确认；不评判，不给方案。</li>
+            <li><strong>Weekly Deep Dive v0.1：</strong>基于本周数据的开放性问题（1-2个）。</li>
+            <li><strong>思绪森林 v1.0：</strong>基础树木增长的视觉回馈。</li>
+            <li><strong>隐私：</strong>端到端加密、本地优先转写、可一键清除。</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <span class="phase-badge phase-p1">P1 / App v1.1</span>
+          <h3>深度功能</h3>
+          <ul>
+            <li><strong>手动情感标记：</strong>细粒度情绪词库（喜/怒/哀/惧/爱/惊等子类）。</li>
+            <li><strong>每周Deep Dive（强化）：</strong>引入"探针卡组"（反例/迁移/约束/角色互换/降维）。</li>
+            <li><strong>Topic Sprint：</strong>一周从发散到收敛，产出观点稿（结构化画布）。</li>
+            <li><strong>O-Index拆解面板：</strong>生发度/整合度/自我觉察度趋势（可解释）。</li>
+            <li><strong>思绪森林 v1.1：</strong>随情绪变色；森林天气系统。</li>
+            <li><strong>洞察徽章 v1.0：</strong>基于模式发现的首批徽章。</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <span class="phase-badge phase-p2">P2 / App v1.2</span>
+          <h3>高级功能</h3>
+          <ul>
+            <li><strong>高级搜索与筛选：</strong>主题/情绪/时间跨度/引用链。</li>
+            <li><strong>心智模型可视化 v1.0：</strong>标签云（思维主题/情绪关键词/高频情境）。</li>
+            <li><strong>Alex（苏格拉底式提问者）：</strong>跨时间关联与前提挑战；反思挑战 v1.0。</li>
+            <li><strong>长按自定义标签（硬件联动）：</strong>现场标注意图，后续绑定。</li>
+            <li><strong>轻社交验证：</strong>匿名盲评、零知识证明式分享（仅展示进步，不暴露内容）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="oindex" class="card span12">
+      <h2>📈 O-Index（可测量成长）与数据流程</h2>
+      <div class="grid">
+        <div class="span6">
+          <h3>指标最小集（P0 → P1）</h3>
+          <ul>
+            <li><strong>行为频次：</strong>有效记录/周、Deep Dive完成率、对话轮次。</li>
+            <li><strong>情绪精细度：</strong>细粒度情绪词使用率（"好/不好"→更具体）。</li>
+            <li><strong>多视角度：</strong>同一主题中出现支持/反驳/替代方案/界限条件的比例。</li>
+            <li><strong>前提显性化率：</strong>显式标注假设/前提的比例。</li>
+            <li><strong>跨时间引用次数与跨度：</strong>引用过往记录与时间距离。</li>
+            <li><strong>周度3问自评（P1起）：</strong>情绪识别、动机透明、他人视角理解（趋势化）。</li>
+          </ul>
+        </div>
+        <div class="span6">
+          <h3>可解释性与纠偏</h3>
+          <ul>
+            <li>每个指标附<strong>"来源片段锚点"</strong>与<strong>"计算方法"</strong>说明。</li>
+            <li>用户可标记误判/隐藏；反馈写回特征规则，迭代优化。</li>
+            <li>默认不跨人比较，仅自我趋势；避免"为分数而练"。</li>
+          </ul>
+        </div>
+        <div class="span12">
+          <h4>数据流水线（端侧优先）</h4>
+          <pre><strong>事件采集（端）：</strong>
+- audio_started, audio_stopped, transcript_ready, emotion_tagged, alex_dialog_turn, deep_dive_done
+
+<strong>上下文与情境（端）：</strong>
+- time, geofence, device, calendar_context, app_context
+
+<strong>特征抽取（端→云）：</strong>
+- 规则/NLP轻量版：连接词检测（然而/但是/同时）、引用检测（"上次/几个月前"+时间戳链接）、情绪词典匹配、前提句式识别（"我假设/前提是/如果……那么……"）
+
+<strong>指标计算（云批处理或端侧每日任务）：</strong>
+- 汇总为 O-Index 结构：{ behavior, emotion_granularity, multi_perspective, premise_explicitness, time_linkage, self_eval }
+
+<strong>可解释存储：</strong>
+- 为每个指标保留片段ID数组与理由文本
+
+<strong>隐私与控制：</strong>
+- E2E加密；用户密钥自管选项；一键清除与本地优先</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="card span12">
+      <h2>🔄 模块级核心业务流程（泳道图式描述）</h2>
+      <div class="grid">
+        <div class="span6">
+          <h3>流程A：无感捕捉→记录卡生成（P0）</h3>
+          <pre>用户        Ring固件      App端侧       云服务
+│ 单击录音 → │ start mic → │ 收音/转写   │（可选）转写增强
+│ 讲话      │ 震动提示   │ 情境元数据提取│
+│ 单击结束 → │ stop mic → │ 生成记录卡   │
+│           │            │ 即时摘要/标签│
+│查看记录卡→ │            │ 本地索引/加密备份│</pre>
+        </div>
+        <div class="span6">
+          <h3>流程B：Weekly Deep Dive（P0→P1）</h3>
+          <pre>调度器（App） → 生成周度邀请 → 用户进入会话
+
+<strong>Alex（P0：倾听者）：</strong>
+- 复述本周关键片段，提出1-2个开放问题
+
+<strong>Alex（P1：模式发现者）：</strong>
+- 调用探针卡组（反例/迁移/约束/角色互换/降维）
+- 引导用户在画布上标注"命题/前提/证据/反证/行动"
+
+<strong>结束：</strong>
+- 生成"思考曲线卡"与 O-Index 更新
+- 产出建议与下一步</pre>
+        </div>
+        <div class="span6">
+          <h3>流程C：Topic Sprint（P1）</h3>
+          <pre>选择主题 → 资料摄入 → 观点发散 → 反例对抗 → 收敛成文
+
+- 每一步绑定探针卡与特征抽取
+- 完成后导出"观点稿"（Markdown/Doc）
+- 更新 O-Index（生发度/整合度/觉察度）</pre>
+        </div>
+        <div class="span6">
+          <h3>流程D：P2 心智模型可视化与挑战</h3>
+          <pre>用户打开"心智模型" → 标签云展示（主题/情绪/情境）
+
+点击标签 → 查看时间轴与引用链 → 回到原记录
+
+Alex发起反思挑战 → 绑定目标指标（如"前提显性化率"）
+
+周期结束 → 生成零知识式进步证明（不含内容）</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="ui" class="card span12">
+      <h2>🎨 关键UI样稿（低保真）</h2>
+      <div class="grid">
+        <div class="span6">
+          <h3>首页：记录流（P0）</h3>
+          <div class="ui">
+            <p><span class="pill">今天</span> <strong>10:24</strong> 会议后散步的灵感</p>
+            <p class="hint">地点：中关村｜设备：Ring v1.0｜情境：日历"项目周会"后</p>
+            <p><strong>摘要：</strong>1）我们优势是开创赛道；2）本周要试一个反例验证；3）与A项目合并评估。</p>
+            <p><span class="tag">战略</span><span class="tag">反例验证</span><span class="tag">焦虑+兴奋</span></p>
+            <hr/>
+            <p><span class="pill">昨天</span> <strong>21:07</strong> 读书笔记：类比思维</p>
+            <p class="hint">来源：网页高亮｜情绪：平静</p>
+            <p><strong>摘要：</strong>通过跨域组合产生创意火花；类比迁移是一种低成本创新。</p>
+            <p><span class="tag">类比</span><span class="tag">方法论</span></p>
+          </div>
+        </div>
+        <div class="span6">
+          <h3>记录详情（P0）</h3>
+          <div class="ui">
+            <p><strong>🎵 音频播放条</strong> ｜ 转写文本（可编辑）</p>
+            <p><strong>即时标签建议：</strong><span class="tag">新项目</span><span class="tag">压力</span><span class="tag">兴奋</span> <button style="padding:4px 12px;background:#3b82f6;color:#fff;border:none;border-radius:6px;cursor:pointer;">[确认]</button></p>
+            <p><strong>Alex：</strong>我听到你在"新项目"同时标了"兴奋"和"压力"。这背后最重要的担心是什么？</p>
+            <p class="hint">✨ O-Index更新：多视角度+1（出现"担心/期待"并行）</p>
+          </div>
+        </div>
+        <div class="span6">
+          <h3>Weekly Deep Dive（P1）</h3>
+          <div class="ui">
+            <p><strong>Alex（模式发现者）：</strong>过去三次提到"新项目"你都引用了半年前的"开创新赛道"的判断。</p>
+            <p><strong>探针卡：反例检验</strong> → "如果开创新赛道是错的，你最担心的成本在哪里？"</p>
+            <p><strong>思维画布：</strong></p>
+            <ul>
+              <li><strong>命题：</strong>X赛道应由我们开创</li>
+              <li><strong>前提：</strong>我们具备资源A/B；风险C可控</li>
+              <li><strong>证据：</strong>用户调研、历史案例</li>
+              <li><strong>反证：</strong>竞争者D先发、资源A不稳定</li>
+              <li><strong>行动：</strong>一周内跑小实
