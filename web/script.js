@@ -9,11 +9,19 @@ function scrollToDownload() {
 const modal = document.getElementById('discordModal');
 const preorderBtn = document.getElementById('preorderBtn');
 const preorderRingBtn = document.getElementById('preorderRingBtn');
+const startFreeBtn = document.getElementById('startFreeBtn');
+const getPremiumBtn = document.getElementById('getPremiumBtn');
+const chooseYearlyBtn = document.getElementById('chooseYearlyBtn');
 const closeBtn = document.querySelector('.close');
 
 // Open modal when preorder buttons are clicked
 preorderBtn.addEventListener('click', openModal);
 preorderRingBtn.addEventListener('click', openModal);
+
+// Open modal when pricing buttons are clicked
+startFreeBtn.addEventListener('click', openModal);
+getPremiumBtn.addEventListener('click', openModal);
+chooseYearlyBtn.addEventListener('click', openModal);
 
 function openModal() {
     modal.style.display = 'block';
@@ -37,8 +45,8 @@ window.addEventListener('click', function(event) {
 
 // Join Discord function
 function joinDiscord() {
-    // Replace with actual Discord invite link
-    const discordInvite = 'https://discord.gg/mindring';
+    // MindRing project Discord invite link
+    const discordInvite = 'https://discord.gg/hZVsEz8Was';
     
     // Track the event (you can integrate with analytics here)
     console.log('User joining Discord community');
