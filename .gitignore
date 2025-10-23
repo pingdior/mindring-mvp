@@ -1,6 +1,7 @@
 # Ignore folder
 .ignore/
-
+scripts/
+nginx/
 # macOS
 .DS_Store
 .DS_Store?
