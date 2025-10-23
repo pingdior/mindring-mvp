@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindRing - Self-Awareness Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="images/mindring-logo.png" alt="MindRing" class="logo">
+                <span class="brand-name">MindRing</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#hardware">Hardware</a>
+                <a href="#download">Download</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Your Daily <span class="highlight">Self-Awareness</span> Companion
+            </h1>
+            <p class="hero-subtitle">
+                3 minutes a day. Measurable self-awareness growth. 
+                For knowledge workers, creators, and independent learners.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="scrollToDownload()">
+                    Download App
+                </button>
+                <button class="btn btn-secondary" id="preorderBtn">
+                    Pre-order Smart Ring
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="alex-hero-background">
+                <img src="images/mindring-alex.png" alt="Alex Mascot" class="alex-hero-mascot">
+            </div>
+            <div class="phone-mockup">
+                <div class="screen">
+                    <div class="app-preview">
+                        <div class="score-display">72</div>
+                        <div class="score-label">Self-Awareness Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Simple. Measurable. Effective.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Single Metric Focus</h3>
+                    <p>Track your Self-Awareness score with clear, actionable insights. No overwhelming data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Voice Recording</h3>
+                    <p>Capture your thoughts naturally with our intuitive recording panel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/mindring-alex-headphone.png" alt="Alex Avatar" class="alex-avatar-icon">
+                    </div>
+                    <h3>Alex Companion</h3>
+                    <p>Get personalized guidance and reflection prompts from your AI companion.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Growth Tracking</h3>
+                    <p>Monitor your progress with emotion granularity and reflection completion metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Free Trial</h3>
+                        <div class="price">$0</div>
+                        <div class="price-period">20 recordings included</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ 20 thought recordings</li>
+                        <li>✓ Basic self-awareness scoring</li>
+                        <li>✓ Alex companion guidance</li>
+                        <li>✓ Daily reflection prompts</li>
+                    </ul>
+                    <button class="btn btn-outline">Start Free</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Premium Monthly</h3>
+                        <div class="price">$9.99</div>
+                        <div class="price-period">per month</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Unlimited recordings</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Growth tracking</li>
+                        <li>✓ Export capabilities</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <button class="btn btn-primary">Get Premium</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Premium Yearly</h3>
+                        <div class="price">$100</div>
+                        <div class="price-period">per year</div>
+                        <div class="savings">Save $19.88</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Everything in Monthly</li>
+                        <li>✓ 2 months free</li>
+                        <li>✓ Annual insights report</li>
+                        <li>✓ Early access to features</li>
+                    </ul>
+                    <button class="btn btn-outline">Choose Yearly</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Section -->
+    <section id="hardware" class="hardware">
+        <div class="container">
+            <div class="hardware-content">
+                <div class="hardware-text">
+                    <h2>MindRing Smart Ring</h2>
+                    <p class="hardware-subtitle">The perfect companion for seamless self-awareness tracking</p>
+                    <div class="hardware-features">
+                        <div class="hardware-feature">
+                            <span class="feature-icon">💍</span>
+                            <div>
+                                <h4>Elegant Design</h4>
+                                <p>Minimalist titanium ring that fits your lifestyle</p>
+                            </div>
+                        </div>
+                        <div class="hardware-feature">
+                            <span class="feature-icon">🔋</span>
+                            <div>
+                                <h4>5-Day Battery</h4>
+                                <p>Multi-day battery life with wireless charging</p>
+                            </div>
+                        </div>
+                        <div class="hardware-feature">
+                            <span class="feature-icon">📱</span>
+                            <div>
+                                <h4>Seamless Sync</h4>
+                                <p>Automatic data sync with your MindRing app</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hardware-pricing">
+                        <div class="hardware-price">$299</div>
+                        <div class="hardware-includes">Includes 1 year Premium membership</div>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="preorderRingBtn">
+                        Pre-order Smart Ring
+                    </button>
+                </div>
+                <div class="hardware-visual">
+                    <div class="ring-display">
+                    <img src="images/mindring-hero-product.png" alt="MindRing Smart Ring" class="ring-image">
+                </div> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="alex-background">
+            <img src="images/mindring-alex.png" alt="Alex Mascot" class="alex-floating alex-left">
+            <img src="images/mindring-alex-package.png" alt="Alex Package" class="alex-package">
+        </div>
+        <div class="container">
+            <h2 class="section-title">Experience MindRing</h2>
+            <p class="download-subtitle">Start your self-awareness journey with Alex</p>
+            
+            <!-- App Showcase with Phone Mockup -->
+            <div class="app-showcase">
+                <div class="app-showcase-content">
+                    <h3>Experience MindRing App</h3>
+                    <p>Start your self-awareness journey with our intelligent assistant Alex</p>
+                    <ul class="app-features">
+                        <li>Real-time self-awareness scoring</li>
+                        <li>Intelligent conversation recording</li>
+                        <li>Personalized recommendations</li>
+                        <li>Emotional state tracking</li>
+                    </ul>
+                </div>
+                <div class="app-display">
+                    <div class="app-screen">
+                        <div class="app-content">
+                            <div class="alex-floating">
+                                <img src="images/mindring-alex.png" alt="Alex Assistant">
+                            </div>
+                            <h4>Start Conversation with Alex</h4>
+                            <p>Your dedicated AI assistant is waiting to connect with you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="download-options">
+                <div class="download-card">
+                    <h3>iOS App</h3>
+                    <div class="qr-code" id="iosQR">
+                        <!-- QR Code will be generated here -->
+                        <div class="qr-placeholder">
+                            <span>📱</span>
+                            <p>Scan to download<br>iOS App</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline">App Store</button>
+                </div>
+                <div class="download-card">
+                    <h3>Android App</h3>
+                    <div class="qr-code" id="androidQR">
+                        <!-- QR Code will be generated here -->
+                        <div class="qr-placeholder">
+                            <span>🤖</span>
+                            <p>Scan to download<br>Android App</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline">Google Play</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/mindring-logo.png" alt="MindRing" class="footer-logo">
+                    <span class="footer-brand-name">MindRing</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#support">Support</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MindRing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Discord Modal -->
+    <div id="discordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Join Our Founding Community</h2>
+            <p>Become a founding partner and help shape the future of MindRing!</p>
+            <div class="discord-benefits">
+                <div class="benefit">
+                    <span class="benefit-icon">🎯</span>
+                    <div>
+                        <h4>20% Founder Discount</h4>
+                        <p>Get your Smart Ring for just $239 instead of $299</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">🚀</span>
+                    <div>
+                        <h4>Early Access</h4>
+                        <p>Be the first to test new features and provide feedback</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <span class="benefit-icon">🤝</span>
+                    <div>
+                        <h4>Co-Development</h4>
+                        <p>Help us build the perfect self-awareness companion</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-large" onclick="joinDiscord()">
+                Join Discord Community
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

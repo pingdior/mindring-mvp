@@ -153,17 +153,10 @@ struct HomeView: View {
                         Button(action: {
                             showChatView = true
                         }) {
-                            Text("A")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(.white)
+                            Image("mindring-alex")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 44, height: 44)
-                                .background(
-                                    LinearGradient(
-                                        colors: [DesignSystem.Colors.earth.opacity(0.9), DesignSystem.Colors.earth],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
                                 .clipShape(Circle())
                         }
                     }

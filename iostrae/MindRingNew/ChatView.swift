@@ -125,17 +125,10 @@ struct ChatMessageView: View {
             } else {
                 VStack(alignment: .leading, spacing: DesignSystem.Spacing.xs) {
                     HStack(spacing: DesignSystem.Spacing.xs) {
-                        Text("A")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.white)
+                        Image("mindring-alex")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 24, height: 24)
-                            .background(
-                                LinearGradient(
-                                    colors: [DesignSystem.Colors.earth.opacity(0.9), DesignSystem.Colors.earth],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
                             .clipShape(Circle())
                         
                         Text("Alex")
