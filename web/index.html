@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindRing - Self-Awareness Companion</title>
+    <title data-i18n="page.title">MindRing - Self-Awareness Companion</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -16,42 +21,67 @@
                 <span class="brand-name">MindRing</span>
             </div>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#hardware">Hardware</a>
-                <a href="#download">Download</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="#hardware" data-i18n="nav.hardware">Hardware</a>
+                <a href="#download" data-i18n="nav.download">Download</a>
+                <div class="language-selector">
+                    <button class="language-btn" id="languageBtn">
+                        <span class="language-icon">🌐</span>
+                        <span class="language-text" data-i18n="nav.language">EN</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                        <div class="language-option" data-lang="ar">🇸🇦 العربية</div>
+                        <div class="language-option" data-lang="pt">🇧🇷 Português</div>
+                        <div class="language-option" data-lang="it">🇮🇹 Italiano</div>
+                        <div class="language-option" data-lang="ja">🇯🇵 日本語</div>
+                        <div class="language-option" data-lang="ko">🇰🇷 한국어</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Your Daily <span class="highlight">Self-Awareness</span> Companion
-            </h1>
-            <p class="hero-subtitle">
-                3 minutes a day. Measurable self-awareness growth. 
-                For knowledge workers, creators, and independent learners.
-            </p>
-            <div class="hero-actions">
-                <button class="btn btn-primary" onclick="scrollToDownload()">
-                    Download App
-                </button>
-                <button class="btn btn-secondary" id="preorderBtn">
-                    Pre-order Smart Ring
-                </button>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span data-i18n="hero.title.part1">Your Daily</span> <span class="highlight" data-i18n="hero.title.highlight">Self-Awareness</span> <span data-i18n="hero.title.part2">Companion</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    3 minutes a day. Measurable self-awareness growth. 
+                    For knowledge workers, creators, and independent learners.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToDownload()" data-i18n="hero.download">
+                        Download App
+                    </button>
+                    <button class="btn btn-secondary" id="preorderBtn" data-i18n="hero.preorder">
+                        Pre-order Smart Ring
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="hero-visual">
-            <div class="alex-hero-background">
-                <img src="images/mindring-alex.png" alt="Alex Mascot" class="alex-hero-mascot">
-            </div>
-            <div class="phone-mockup">
-                <div class="screen">
-                    <div class="app-preview">
-                        <div class="score-display">72</div>
-                        <div class="score-label">Self-Awareness Score</div>
+            <div class="hero-visual">
+                <div class="alex-hero-background">
+                    <img src="images/mindring-alex.png" alt="Alex Mascot" class="alex-hero-mascot">
+                </div>
+                <div class="phone-mockup">
+                    <div class="screen">
+                        <div class="app-preview">
+                            <div class="score-display">72</div>
+                            <div class="score-label" data-i18n="hero.score.label">Self-Awareness Score</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,29 +91,29 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Simple. Measurable. Effective.</h2>
+            <h2 class="section-title" data-i18n="features.title">Simple. Measurable. Effective.</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>Single Metric Focus</h3>
-                    <p>Track your Self-Awareness score with clear, actionable insights. No overwhelming data.</p>
+                    <h3 data-i18n="features.focus.title">Single Metric Focus</h3>
+                    <p data-i18n="features.focus.desc">Track your Self-Awareness score with clear, actionable insights. No overwhelming data.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎙️</div>
-                    <h3>Voice Recording</h3>
-                    <p>Capture your thoughts naturally with our intuitive recording panel.</p>
+                    <h3 data-i18n="features.recording.title">Voice Recording</h3>
+                    <p data-i18n="features.recording.desc">Capture your thoughts naturally with our intuitive recording panel.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <img src="images/mindring-alex-headphone.png" alt="Alex Avatar" class="alex-avatar-icon">
                     </div>
-                    <h3>Alex Companion</h3>
-                    <p>Get personalized guidance and reflection prompts from your AI companion.</p>
+                    <h3 data-i18n="features.companion.title">Alex Companion</h3>
+                    <p data-i18n="features.companion.desc">Get personalized guidance and reflection prompts from your AI companion.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📈</div>
-                    <h3>Growth Tracking</h3>
-                    <p>Monitor your progress with emotion granularity and reflection completion metrics.</p>
+                    <h3 data-i18n="features.tracking.title">Growth Tracking</h3>
+                    <p data-i18n="features.tracking.desc">Monitor your progress with emotion granularity and reflection completion metrics.</p>
                 </div>
             </div>
         </div>
@@ -92,54 +122,54 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Choose Your Plan</h2>
+            <h2 class="section-title" data-i18n="pricing.title">Choose Your Plan</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="plan-header">
-                        <h3>Free Trial</h3>
+                        <h3 data-i18n="pricing.free.title">Free Trial</h3>
                         <div class="price">$0</div>
-                        <div class="price-period">20 recordings included</div>
+                        <div class="price-period" data-i18n="pricing.free.period">20 recordings included</div>
                     </div>
                     <ul class="plan-features">
-                        <li>✓ 20 thought recordings</li>
-                        <li>✓ Basic self-awareness scoring</li>
-                        <li>✓ Alex companion guidance</li>
-                        <li>✓ Daily reflection prompts</li>
+                        <li data-i18n="pricing.free.feature1">✓ 20 thought recordings</li>
+                        <li data-i18n="pricing.free.feature2">✓ Basic self-awareness scoring</li>
+                        <li data-i18n="pricing.free.feature3">✓ Alex companion guidance</li>
+                        <li data-i18n="pricing.free.feature4">✓ Daily reflection prompts</li>
                     </ul>
-                    <button class="btn btn-outline" id="startFreeBtn">Start Free</button>
+                    <button class="btn btn-outline" id="startFreeBtn" data-i18n="pricing.free.button">Start Free</button>
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-badge" data-i18n="pricing.popular">Most Popular</div>
                     <div class="plan-header">
-                        <h3>Premium Monthly</h3>
+                        <h3 data-i18n="pricing.premium.title">Premium Monthly</h3>
                         <div class="price">$9.99</div>
-                        <div class="price-period">per month</div>
+                        <div class="price-period" data-i18n="pricing.premium.period">per month</div>
                     </div>
                     <ul class="plan-features">
-                        <li>✓ Unlimited recordings</li>
-                        <li>✓ Advanced analytics</li>
-                        <li>✓ Growth tracking</li>
-                        <li>✓ Export capabilities</li>
-                        <li>✓ Priority support</li>
+                        <li data-i18n="pricing.premium.feature1">✓ Unlimited recordings</li>
+                        <li data-i18n="pricing.premium.feature2">✓ Advanced analytics</li>
+                        <li data-i18n="pricing.premium.feature3">✓ Growth tracking</li>
+                        <li data-i18n="pricing.premium.feature4">✓ Export capabilities</li>
+                        <li data-i18n="pricing.premium.feature5">✓ Priority support</li>
                     </ul>
-                    <button class="btn btn-primary" id="getPremiumBtn">Get Premium</button>
+                    <button class="btn btn-primary" id="getPremiumBtn" data-i18n="pricing.premium.button">Get Premium</button>
                 </div>
                 
                 <div class="pricing-card">
                     <div class="plan-header">
-                        <h3>Premium Yearly</h3>
+                        <h3 data-i18n="pricing.yearly.title">Premium Yearly</h3>
                         <div class="price">$100</div>
-                        <div class="price-period">per year</div>
-                        <div class="savings">Save $19.88</div>
+                        <div class="price-period" data-i18n="pricing.yearly.period">per year</div>
+                        <div class="savings" data-i18n="pricing.yearly.savings">Save $19.88</div>
                     </div>
                     <ul class="plan-features">
-                        <li>✓ Everything in Monthly</li>
-                        <li>✓ 2 months free</li>
-                        <li>✓ Annual insights report</li>
-                        <li>✓ Early access to features</li>
+                        <li data-i18n="pricing.yearly.feature1">✓ Everything in Monthly</li>
+                        <li data-i18n="pricing.yearly.feature2">✓ 2 months free</li>
+                        <li data-i18n="pricing.yearly.feature3">✓ Annual insights report</li>
+                        <li data-i18n="pricing.yearly.feature4">✓ Early access to features</li>
                     </ul>
-                    <button class="btn btn-outline" id="chooseYearlyBtn">Choose Yearly</button>
+                    <button class="btn btn-outline" id="chooseYearlyBtn" data-i18n="pricing.yearly.button">Choose Yearly</button>
                 </div>
             </div>
         </div>
@@ -150,36 +180,36 @@
         <div class="container">
             <div class="hardware-content">
                 <div class="hardware-text">
-                    <h2>MindRing Smart Ring</h2>
-                    <p class="hardware-subtitle">The perfect companion for seamless self-awareness tracking</p>
+                    <h2 data-i18n="hardware.title">MindRing Smart Ring</h2>
+                    <p class="hardware-subtitle" data-i18n="hardware.subtitle">The perfect companion for seamless self-awareness tracking</p>
                     <div class="hardware-features">
                         <div class="hardware-feature">
                             <span class="feature-icon">💍</span>
                             <div>
-                                <h4>Elegant Design</h4>
-                                <p>Minimalist titanium ring that fits your lifestyle</p>
+                                <h4 data-i18n="hardware.design.title">Elegant Design</h4>
+                                <p data-i18n="hardware.design.desc">Minimalist titanium ring that fits your lifestyle</p>
                             </div>
                         </div>
                         <div class="hardware-feature">
                             <span class="feature-icon">🔋</span>
                             <div>
-                                <h4>5-Day Battery</h4>
-                                <p>Multi-day battery life with wireless charging</p>
+                                <h4 data-i18n="hardware.battery.title">5-Day Battery</h4>
+                                <p data-i18n="hardware.battery.desc">Multi-day battery life with wireless charging</p>
                             </div>
                         </div>
                         <div class="hardware-feature">
                             <span class="feature-icon">📱</span>
                             <div>
-                                <h4>Seamless Sync</h4>
-                                <p>Automatic data sync with your MindRing app</p>
+                                <h4 data-i18n="hardware.sync.title">Seamless Sync</h4>
+                                <p data-i18n="hardware.sync.desc">Automatic data sync with your MindRing app</p>
                             </div>
                         </div>
                     </div>
                     <div class="hardware-pricing">
                         <div class="hardware-price">$299</div>
-                        <div class="hardware-includes">Includes 1 year Premium membership</div>
+                        <div class="hardware-includes" data-i18n="hardware.includes">Includes 1 year Premium membership</div>
                     </div>
-                    <button class="btn btn-primary btn-large" id="preorderRingBtn">
+                    <button class="btn btn-primary btn-large" id="preorderRingBtn" data-i18n="hardware.button">
                         Pre-order Smart Ring
                     </button>
                 </div>
@@ -194,24 +224,20 @@
 
     <!-- Download Section -->
     <section id="download" class="download">
-        <div class="alex-background">
-            <img src="images/mindring-alex.png" alt="Alex Mascot" class="alex-floating alex-left">
-            <img src="images/mindring-alex-package.png" alt="Alex Package" class="alex-package">
-        </div>
         <div class="container">
-            <h2 class="section-title">Experience MindRing</h2>
-            <p class="download-subtitle">Start your self-awareness journey with Alex</p>
+            <h2 class="section-title" data-i18n="download.title">Experience MindRing</h2>
+            <p class="download-subtitle" data-i18n="download.subtitle">Start your self-awareness journey with Alex</p>
             
             <!-- App Showcase with Phone Mockup -->
             <div class="app-showcase">
                 <div class="app-showcase-content">
-                    <h3>Experience MindRing App</h3>
-                    <p>Start your self-awareness journey with our intelligent assistant Alex</p>
+                    <h3 data-i18n="download.app.title">Experience MindRing App</h3>
+                    <p data-i18n="download.app.desc">Start your self-awareness journey with our intelligent assistant Alex</p>
                     <ul class="app-features">
-                        <li>Real-time self-awareness scoring</li>
-                        <li>Intelligent conversation recording</li>
-                        <li>Personalized recommendations</li>
-                        <li>Emotional state tracking</li>
+                        <li data-i18n="download.app.feature1">Real-time self-awareness scoring</li>
+                        <li data-i18n="download.app.feature2">Intelligent conversation recording</li>
+                        <li data-i18n="download.app.feature3">Personalized recommendations</li>
+                        <li data-i18n="download.app.feature4">Emotional state tracking</li>
                     </ul>
                 </div>
                 <div class="app-display">
@@ -220,8 +246,8 @@
                             <div class="alex-floating">
                                 <img src="images/mindring-alex.png" alt="Alex Assistant">
                             </div>
-                            <h4>Start Conversation with Alex</h4>
-                            <p>Your dedicated AI assistant is waiting to connect with you</p>
+                            <h4 data-i18n="download.alex.title">Start Conversation with Alex</h4>
+                            <p data-i18n="download.alex.desc">Your dedicated AI assistant is waiting to connect with you</p>
                         </div>
                     </div>
                 </div>
@@ -229,26 +255,26 @@
             
             <div class="download-options">
                 <div class="download-card">
-                    <h3>iOS App</h3>
+                    <h3 data-i18n="download.ios.title">iOS App</h3>
                     <div class="qr-code" id="iosQR">
                         <!-- QR Code will be generated here -->
                         <div class="qr-placeholder">
                             <span>📱</span>
-                            <p>Scan to download<br>iOS App</p>
+                            <p data-i18n="download.ios.desc">Scan to download<br>iOS App</p>
                         </div>
                     </div>
-                    <button class="btn btn-outline">App Store</button>
+                    <button class="btn btn-outline" data-i18n="download.ios.button">App Store</button>
                 </div>
                 <div class="download-card">
-                    <h3>Android App</h3>
+                    <h3 data-i18n="download.android.title">Android App</h3>
                     <div class="qr-code" id="androidQR">
                         <!-- QR Code will be generated here -->
                         <div class="qr-placeholder">
                             <span>🤖</span>
-                            <p>Scan to download<br>Android App</p>
+                            <p data-i18n="download.android.desc">Scan to download<br>Android App</p>
                         </div>
                     </div>
-                    <button class="btn btn-outline">Google Play</button>
+                    <button class="btn btn-outline" data-i18n="download.android.button">Google Play</button>
                 </div>
             </div>
         </div>
@@ -258,19 +284,53 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="images/mindring-logo.png" alt="MindRing" class="footer-logo">
-                    <span class="footer-brand-name">MindRing</span>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.product.title">Product</h4>
+                    <ul>
+                        <li><a href="#features" data-i18n="footer.product.features">Features</a></li>
+                        <li><a href="#pricing" data-i18n="footer.product.pricing">Pricing</a></li>
+                        <li><a href="#hardware" data-i18n="footer.product.hardware">Hardware</a></li>
+                        <li><a href="#download" data-i18n="footer.product.download">Download</a></li>
+                    </ul>
                 </div>
-                <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#support">Support</a>
-                    <a href="#contact">Contact</a>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company.title">Company</h4>
+                    <ul>
+                        <li><a href="#about" data-i18n="footer.company.about">About Us</a></li>
+                        <li><a href="#contact" data-i18n="footer.company.contact">Contact</a></li>
+                        <li><a href="#careers" data-i18n="footer.company.careers">Careers</a></li>
+                        <li><a href="#press" data-i18n="footer.company.press">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.support.title">Support</h4>
+                    <ul>
+                        <li><a href="#help" data-i18n="footer.support.help">Help Center</a></li>
+                        <li><a href="#privacy" data-i18n="footer.support.privacy">Privacy Policy</a></li>
+                        <li><a href="#terms" data-i18n="footer.support.terms">Terms of Service</a></li>
+                        <li><a href="#security" data-i18n="footer.support.security">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.connect.title">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    </div>
+                    <div class="newsletter">
+                        <h5 data-i18n="footer.newsletter.title">Newsletter</h5>
+                        <p data-i18n="footer.newsletter.desc">Stay updated with our latest news</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" id="newsletterEmail" placeholder="Enter your email" data-i18n-placeholder="footer.newsletter.placeholder" required>
+                            <button type="submit" data-i18n="footer.newsletter.button">Subscribe</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 MindRing. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2024 MindRing. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -279,32 +339,32 @@
     <div id="discordModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Join Our Founding Community</h2>
-            <p>Become a founding partner and help shape the future of MindRing!</p>
+            <h2 data-i18n="modal.title">Join Our Founding Community</h2>
+            <p data-i18n="modal.description">Become a founding partner and help shape the future of MindRing!</p>
             <div class="discord-benefits">
                 <div class="benefit">
                     <span class="benefit-icon">🎯</span>
                     <div>
-                        <h4>20% Founder Discount</h4>
-                        <p>Get your Smart Ring for just $239 instead of $299</p>
+                        <h4 data-i18n="modal.benefit1.title">20% Founder Discount</h4>
+                        <p data-i18n="modal.benefit1.description">Get your Smart Ring for just $239 instead of $299</p>
                     </div>
                 </div>
                 <div class="benefit">
                     <span class="benefit-icon">🚀</span>
                     <div>
-                        <h4>Early Access</h4>
-                        <p>Be the first to test new features and provide feedback</p>
+                        <h4 data-i18n="modal.benefit2.title">Early Access</h4>
+                        <p data-i18n="modal.benefit2.description">Be the first to test new features and provide feedback</p>
                     </div>
                 </div>
                 <div class="benefit">
                     <span class="benefit-icon">🤝</span>
                     <div>
-                        <h4>Co-Development</h4>
-                        <p>Help us build the perfect self-awareness companion</p>
+                        <h4 data-i18n="modal.benefit3.title">Co-Development</h4>
+                        <p data-i18n="modal.benefit3.description">Help us build the perfect self-awareness companion</p>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-large" onclick="joinDiscord()">
+            <button class="btn btn-primary btn-large" onclick="joinDiscord()" data-i18n="modal.button">
                 Join Discord Community
             </button>
         </div>

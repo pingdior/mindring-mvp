@@ -58,7 +58,8 @@ function joinDiscord() {
     closeModal();
     
     // Show success message
-    showNotification('Welcome to the MindRing community! Check your new tab to join Discord.');
+    const message = translations[currentLanguage]?.['notification.discord'] || 'Welcome to the MindRing community! Check your new tab to join Discord.';
+    showNotification(message);
 }
 
 // Notification system
@@ -237,10 +238,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Form handling for newsletter signup (if you add one later)
+// Form handling for newsletter signup
 function handleNewsletterSignup(email) {
     console.log('Newsletter signup:', email);
-    showNotification('Thank you for subscribing! We\'ll keep you updated on MindRing\'s progress.');
+    
+    // Send email to woodgaya@gmail.com using a simple mailto link
+    // In a real application, you would use a backend service or email API
+    const subject = encodeURIComponent('MindRing Newsletter Subscription');
+    const body = encodeURIComponent(`New newsletter subscription from: ${email}\n\nPlease add this email to the MindRing newsletter list.`);
+    const mailtoLink = `mailto:woodgaya@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open the user's email client
+    window.open(mailtoLink);
+    
+    const message = translations[currentLanguage]?.['notification.newsletter'] || 'Thank you for subscribing! We\'ll keep you updated on MindRing\'s progress.';
+    showNotification(message);
 }
 
 // Analytics tracking (placeholder - integrate with your analytics service)
@@ -268,11 +280,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Mobile menu toggle (for future mobile menu implementation)
+// Mobile menu toggle
 function toggleMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('mobile-open');
 }
+
+// Initialize mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on nav links
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+    }
+});
 
 // Keyboard accessibility
 document.addEventListener('keydown', function(e) {
@@ -318,7 +352,7 @@ modal.addEventListener('keydown', function(e) {
 
 // Alex Interactive Elements
 function initAlexAnimations() {
-    const alexElements = document.querySelectorAll('.alex-floating, .alex-hero-mascot, .alex-package');
+    const alexElements = document.querySelectorAll('.alex-floating, .alex-hero-mascot');
     
     // Add hover effects
     alexElements.forEach(alex => {
@@ -343,7 +377,8 @@ function initAlexAnimations() {
             }, 600);
             
             // Show a fun message
-            showNotification('Alex says: Welcome to MindRing! 🦉', 'success');
+            const message = translations[currentLanguage]?.['notification.alex'] || 'Alex says: Welcome to MindRing! 🦉';
+            showNotification(message, 'success');
         });
     });
 }
@@ -369,7 +404,30 @@ function addBounceAnimation() {
 
 // Initialize Alex animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Alex animations
     initAlexAnimations();
     addBounceAnimation();
+    
+    // Add newsletter form event listener
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            const email = emailInput.value.trim();
+            
+            if (email && email.includes('@')) {
+                handleNewsletterSignup(email);
+                emailInput.value = ''; // Clear the input after submission
+            } else {
+                const errorMessage = translations[currentLanguage]?.['notification.email.invalid'] || 'Please enter a valid email address.';
+                showNotification(errorMessage);
+            }
+        });
+    }
+    
+    // Initialize language manager
+    if (typeof LanguageManager !== 'undefined') {
+        const langManager = new LanguageManager();
+        langManager.init();
+    }
 });
