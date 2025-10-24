@@ -1,0 +1,42 @@
+/* Additional responsive fixes for long text languages */
+@media (max-width: 1024px) {
+    .step-label {
+        max-width: 70px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Special handling for languages with longer text */
+[lang="ar"] .step-label,
+[lang="de"] .step-label,
+[lang="es"] .step-label,
+[lang="pt"] .step-label,
+[lang="it"] .step-label,
+[lang="fr"] .step-label {
+    font-size: 0.65rem;
+    max-width: 65px;
+}
+
+@media (max-width: 768px) {
+    [lang="ar"] .step-label,
+    [lang="de"] .step-label,
+    [lang="es"] .step-label,
+    [lang="pt"] .step-label,
+    [lang="it"] .step-label,
+    [lang="fr"] .step-label {
+        font-size: 0.6rem;
+        max-width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    [lang="ar"] .step-label,
+    [lang="de"] .step-label,
+    [lang="es"] .step-label,
+    [lang="pt"] .step-label,
+    [lang="it"] .step-label,
+    [lang="fr"] .step-label {
+        font-size: 0.55rem;
+        max-width: 40px;
+    }
+}
